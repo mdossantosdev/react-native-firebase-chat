@@ -1,6 +1,6 @@
 import React from 'react';
-import Routes from './src/navigation/Routes';
+import Providers from './src/navigation';
 
 export default function App() {
-  return <Routes />;
+  return <Providers />;
 }
