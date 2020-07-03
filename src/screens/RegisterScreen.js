@@ -4,7 +4,7 @@ import { Title, IconButton } from 'react-native-paper';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 
-export default function RegisterScreen() {
+export default function RegisterScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -33,6 +33,7 @@ export default function RegisterScreen() {
         size={30}
         color='#6646ee'
         style={styles.navButton}
+        onPress={() => navigation.goBack()}
       />
     </View>
   );
