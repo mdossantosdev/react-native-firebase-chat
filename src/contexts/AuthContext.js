@@ -1,9 +1,9 @@
 import React, { createContext, useState } from 'react';
 import { register, login, logout } from '../api/firebaseAPI';
 
-const AuthContext = createContext({});
+export const AuthContext = createContext({});
 
-export function AuthProvider({ children }) {
+export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   return (
@@ -11,4 +11,4 @@ export function AuthProvider({ children }) {
       {children}
     </AuthContext.Provider>
   );
-}
+};
