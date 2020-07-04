@@ -4,6 +4,7 @@ import { AuthContext } from '../contexts/AuthContext';
 import { firebase } from '../config/firebase';
 import AppStack from './AppStack';
 import AuthStack from './AuthStack';
+import Loading from '../components/Loading';
 
 export default function Routes() {
   const { user, setUser } = useContext(AuthContext);
@@ -23,7 +24,7 @@ export default function Routes() {
   }, []);
 
   if (isLoading) {
-    console.log('Loading');
+    return <Loading />;
   }
 
   return (
