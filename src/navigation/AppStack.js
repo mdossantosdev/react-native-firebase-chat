@@ -4,7 +4,7 @@ import HomeScreen from '../screens/HomeScreen';
 
 const Stack = createStackNavigator();
 
-export default function HomeStack() {
+export default function AppStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name='Home' component={HomeScreen} />
