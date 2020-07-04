@@ -15,3 +15,11 @@ export async function login(email, password) {
     console.log(err.message);
   }
 }
+
+export async function logout() {
+  try {
+    await firebase.auth().signOut();
+  } catch (err) {
+    console.log(err.message);
+  }
+}
