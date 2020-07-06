@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList, TouchableOpacity } from 'react-native';
 import { List, Divider } from 'react-native-paper';
 import Loading from '../components/Loading';
 import { firebase } from '../config/firebase';
@@ -34,14 +34,18 @@ export default function HomeScreen({ navigation }) {
   }
 
   const renderItem = ({ item }) => (
-    <List.Item
-      title={item.name}
-      description='Item description'
-      titleNumberOfLines={1}
-      titleStyle={styles.listTitle}
-      descriptionStyle={styles.listDescription}
-      descriptionNumberOfLines={1}
-    />
+    <TouchableOpacity
+      onPress={() => navigation.navigate('Room', { tread: item })}
+    >
+      <List.Item
+        title={item.name}
+        description='Item description'
+        titleNumberOfLines={1}
+        titleStyle={styles.listTitle}
+        descriptionStyle={styles.listDescription}
+        descriptionNumberOfLines={1}
+      />
+    </TouchableOpacity>
   );
 
   return (

@@ -11,7 +11,7 @@ export default function RoomScreen() {
     },
     {
       _id: 1,
-      text: 'Henlo!',
+      text: 'Hello!',
       createdAt: new Date().getTime(),
       user: {
         _id: 2,
