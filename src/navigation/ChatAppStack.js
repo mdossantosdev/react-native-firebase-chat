@@ -1,7 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from '../screens/HomeScreen';
 import { IconButton } from 'react-native-paper';
+import HomeScreen from '../screens/HomeScreen';
+import RoomScreen from '../screens/RoomScreen';
 
 const ChatAppStack = createStackNavigator();
 
@@ -32,6 +33,7 @@ export default function ChatApp() {
           ),
         })}
       />
+      <ChatAppStack.Screen name='Room' component={RoomScreen} />
     </ChatAppStack.Navigator>
   );
 }
