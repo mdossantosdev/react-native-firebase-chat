@@ -1,11 +1,22 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { IconButton, Title } from 'react-native-paper';
+import { firebase } from '../config/firebase';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 
 export default function AddRoomScreen({ navigation }) {
   const [roomName, setRoomName] = useState('');
+
+  const createRoom = async () => {
+    try {
+      await firebase.firestore().collection('TREADS').add({ name: roomName });
+
+      navigation.navigate('Home');
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -29,7 +40,7 @@ export default function AddRoomScreen({ navigation }) {
           title='Create'
           modeValue='contained'
           labelStyle={styles.buttonLabel}
-          onPress={() => console.log('Create', roomName)}
+          onPress={roomName.length > 0 ? () => createRoom() : null}
           disabled={roomName.length === 0}
         />
       </View>
