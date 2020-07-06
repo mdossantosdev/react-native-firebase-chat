@@ -10,7 +10,7 @@ export default function AddRoomScreen({ navigation }) {
 
   const createRoom = async () => {
     try {
-      await firebase.firestore().collection('TREADS').add({ name: roomName });
+      await firebase.firestore().collection('THREADS').add({ name: roomName });
 
       navigation.navigate('Home');
     } catch (err) {
