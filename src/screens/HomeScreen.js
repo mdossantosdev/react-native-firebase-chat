@@ -5,7 +5,7 @@ import FormButton from '../components/FormButton';
 import { AuthContext } from '../contexts/AuthContext';
 import { logout } from '../api/firebaseAPI';
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   const { user } = useContext(AuthContext);
   return (
     <View style={styles.container}>
@@ -16,6 +16,11 @@ export default function HomeScreen() {
         modeValue='contained'
         title='Logout'
         onPress={() => logout()}
+      />
+      <FormButton
+        modeValue='contained'
+        title='Add Room'
+        onPress={() => navigation.navigate('AddRoom')}
       />
     </View>
   );
