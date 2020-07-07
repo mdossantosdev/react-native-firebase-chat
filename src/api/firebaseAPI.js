@@ -63,3 +63,26 @@ export async function sendLatestMessage(thread, text) {
     console.log(err.message);
   }
 }
+
+export async function createRoom(roomName) {
+  try {
+    const ref = await firebase
+      .firestore()
+      .collection('THREADS')
+      .add({
+        name: roomName,
+        latestMessage: {
+          text: `You have joined the room ${roomName}`,
+          createdAt: new Date().getTime(),
+        },
+      });
+
+    await ref.collection('MESSAGES').add({
+      text: `You have joined the room ${roomName}`,
+      createdAt: new Date().getTime(),
+      system: true,
+    });
+  } catch (err) {
+    console.log(err.message);
+  }
+}
