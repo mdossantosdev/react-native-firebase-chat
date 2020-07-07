@@ -7,7 +7,7 @@ import {
   renderLoading,
 } from '../components/GiftedChat';
 import { AuthContext } from '../contexts/AuthContext';
-import { sendMessage } from '../api/firebaseAPI';
+import { sendMessage, sendLatestMessage } from '../api/firebaseAPI';
 
 export default function RoomScreen({ route }) {
   const [messages, setMessages] = useState([]);
@@ -23,6 +23,7 @@ export default function RoomScreen({ route }) {
     const text = messages[0].text;
 
     sendMessage(thread, currentUser, text);
+    sendLatestMessage(thread, text);
   };
 
   return (

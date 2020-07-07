@@ -43,3 +43,23 @@ export async function sendMessage(thread, user, text) {
     console.log(err.message);
   }
 }
+
+export async function sendLatestMessage(thread, text) {
+  try {
+    await firebase
+      .firestore()
+      .collection('THREADS')
+      .doc(thread._id)
+      .set(
+        {
+          latestMessage: {
+            text,
+            createdAt: new Date().getTime(),
+          },
+        },
+        { merge: true }
+      );
+  } catch (err) {
+    console.log(err.message);
+  }
+}
