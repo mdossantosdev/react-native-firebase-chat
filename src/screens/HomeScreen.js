@@ -12,11 +12,15 @@ export default function HomeScreen({ navigation }) {
     const unsubscribe = firebase
       .firestore()
       .collection('THREADS')
+      .orderBy('latestMessage.createdAt', 'desc')
       .onSnapshot((querySnapshot) => {
         const threads = querySnapshot.docs.map((documentSnapshot) => {
           return {
             _id: documentSnapshot.id,
             name: '',
+            latestMessage: {
+              text: '',
+            },
             ...documentSnapshot.data(),
           };
         });
@@ -39,7 +43,7 @@ export default function HomeScreen({ navigation }) {
     >
       <List.Item
         title={item.name}
-        description='Item description'
+        description={item.latestMessage.text}
         titleNumberOfLines={1}
         titleStyle={styles.listTitle}
         descriptionStyle={styles.listDescription}
