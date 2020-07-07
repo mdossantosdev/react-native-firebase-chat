@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { IconButton } from 'react-native-paper';
 import HomeScreen from '../screens/HomeScreen';
 import RoomScreen from '../screens/RoomScreen';
+import { logout } from '../api/firebaseAPI';
 
 const ChatAppStack = createStackNavigator();
 
@@ -23,10 +24,18 @@ export default function ChatApp() {
         name='Home'
         component={HomeScreen}
         options={({ navigation }) => ({
+          headerLeft: () => (
+            <IconButton
+              icon='logout-variant'
+              size={24}
+              color='#ffffff'
+              onPress={() => logout()}
+            />
+          ),
           headerRight: () => (
             <IconButton
               icon='message-plus'
-              size={28}
+              size={24}
               color='#ffffff'
               onPress={() => navigation.navigate('AddRoom')}
             />
