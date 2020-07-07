@@ -1,5 +1,6 @@
 import React from 'react';
-import { Bubble } from 'react-native-gifted-chat';
+import { Bubble, Send } from 'react-native-gifted-chat';
+import { IconButton } from 'react-native-paper';
 
 export const renderBubble = (props) => {
   return (
@@ -22,5 +23,23 @@ export const renderBubble = (props) => {
         },
       }}
     />
+  );
+};
+
+export const renderSend = (props) => {
+  return (
+    <Send
+      {...props}
+      disabled={!props.text}
+      containerStyle={{
+        width: 44,
+        height: 44,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginHorizontal: 4,
+      }}
+    >
+      <IconButton icon='send-circle' size={32} color='#6646ee' />
+    </Send>
   );
 };

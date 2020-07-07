@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { GiftedChat } from 'react-native-gifted-chat';
-import { renderBubble } from '../components/GiftedChat';
+import { renderBubble, renderSend } from '../components/GiftedChat';
 
 export default function RoomScreen() {
   const [messages, setMessages] = useState([
@@ -30,7 +30,11 @@ export default function RoomScreen() {
       messages={messages}
       onSend={(newMessage) => handleSend(newMessage)}
       user={{ _id: 1, name: 'User Test' }}
+      placeholder='New Message'
+      showUserAvatar
+      alwaysShowSend
       renderBubble={renderBubble}
+      renderSend={renderSend}
     />
   );
 }
