@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 import { Bubble, Send } from 'react-native-gifted-chat';
 import { IconButton } from 'react-native-paper';
 
@@ -41,5 +42,13 @@ export const renderSend = (props) => {
     >
       <IconButton icon='send-circle' size={32} color='#6646ee' />
     </Send>
+  );
+};
+
+export const scrollToBottomComponent = () => {
+  return (
+    <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+      <IconButton icon='chevron-down' size={34} color='#6646ee' />
+    </View>
   );
 };

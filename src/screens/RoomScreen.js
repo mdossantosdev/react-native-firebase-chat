@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { GiftedChat } from 'react-native-gifted-chat';
-import { renderBubble, renderSend } from '../components/GiftedChat';
+import {
+  renderBubble,
+  renderSend,
+  scrollToBottomComponent,
+} from '../components/GiftedChat';
 
 export default function RoomScreen() {
   const [messages, setMessages] = useState([
@@ -31,10 +35,11 @@ export default function RoomScreen() {
       onSend={(newMessage) => handleSend(newMessage)}
       user={{ _id: 1, name: 'User Test' }}
       placeholder='New Message'
-      showUserAvatar
       alwaysShowSend
+      scrollToBottom
       renderBubble={renderBubble}
       renderSend={renderSend}
+      scrollToBottomComponent={scrollToBottomComponent}
     />
   );
 }
