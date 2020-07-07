@@ -4,8 +4,11 @@ import { IconButton, Title } from 'react-native-paper';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import { createRoom } from '../api/firebaseAPI';
+import useStatusBar from '../hooks/useStatusBar';
 
 export default function AddRoomScreen({ navigation }) {
+  useStatusBar('dark-content');
+
   const [roomName, setRoomName] = useState('');
 
   const handlePress = () => {

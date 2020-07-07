@@ -10,8 +10,11 @@ import {
 import { AuthContext } from '../contexts/AuthContext';
 import { sendMessage, sendLatestMessage } from '../api/firebaseAPI';
 import { firebase } from '../config/firebase';
+import useStatusBar from '../hooks/useStatusBar';
 
 export default function RoomScreen({ route }) {
+  useStatusBar('light-content');
+
   const [messages, setMessages] = useState([]);
   const { thread } = route.params;
   const { user } = useContext(AuthContext);
