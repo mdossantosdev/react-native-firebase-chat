@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
 import { Bubble, Send } from 'react-native-gifted-chat';
 import { IconButton } from 'react-native-paper';
 
@@ -49,6 +49,14 @@ export const scrollToBottomComponent = () => {
   return (
     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
       <IconButton icon='chevron-down' size={34} color='#6646ee' />
+    </View>
+  );
+};
+
+export const renderLoading = () => {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <ActivityIndicator size='large' color='#6646ee' />
     </View>
   );
 };

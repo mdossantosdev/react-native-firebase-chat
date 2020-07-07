@@ -4,6 +4,7 @@ import {
   renderBubble,
   renderSend,
   scrollToBottomComponent,
+  renderLoading,
 } from '../components/GiftedChat';
 
 export default function RoomScreen() {
@@ -40,6 +41,7 @@ export default function RoomScreen() {
       renderBubble={renderBubble}
       renderSend={renderSend}
       scrollToBottomComponent={scrollToBottomComponent}
+      renderLoading={renderLoading}
     />
   );
 }
