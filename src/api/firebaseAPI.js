@@ -23,3 +23,23 @@ export async function logout() {
     console.log(err.message);
   }
 }
+
+export async function sendMessage(thread, user, text) {
+  try {
+    await firebase
+      .firestore()
+      .collection('THREADS')
+      .doc(thread._id)
+      .collection('MESSAGES')
+      .add({
+        text,
+        createdAt: new Date().getTime(),
+        user: {
+          _id: user.uid,
+          email: user.email,
+        },
+      });
+  } catch (err) {
+    console.log(err.message);
+  }
+}

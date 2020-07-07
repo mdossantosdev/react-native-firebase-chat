@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { GiftedChat } from 'react-native-gifted-chat';
 import {
   renderBubble,
@@ -6,34 +6,29 @@ import {
   scrollToBottomComponent,
   renderLoading,
 } from '../components/GiftedChat';
+import { AuthContext } from '../contexts/AuthContext';
+import { sendMessage } from '../api/firebaseAPI';
 
-export default function RoomScreen() {
-  const [messages, setMessages] = useState([
-    {
-      _id: 0,
-      text: 'New room created.',
-      createdAt: new Date().getTime(),
-      system: true,
-    },
-    {
-      _id: 1,
-      text: 'Hello!',
-      createdAt: new Date().getTime(),
-      user: {
-        _id: 2,
-        name: 'Test User',
-      },
-    },
-  ]);
+export default function RoomScreen({ route }) {
+  const [messages, setMessages] = useState([]);
+  const { thread } = route.params;
+  const { user } = useContext(AuthContext);
+  const currentUser = user.toJSON();
 
-  const handleSend = (newMessage = []) => {
-    setMessages(GiftedChat.append(messages, newMessage));
+  useEffect(() => {
+    console.log({ user });
+  }, []);
+
+  const handleSend = (messages) => {
+    const text = messages[0].text;
+
+    sendMessage(thread, currentUser, text);
   };
 
   return (
     <GiftedChat
       messages={messages}
-      onSend={(newMessage) => handleSend(newMessage)}
+      onSend={handleSend}
       user={{ _id: 1, name: 'User Test' }}
       placeholder='New Message'
       alwaysShowSend
