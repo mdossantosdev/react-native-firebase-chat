@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
-import { Bubble, Send } from 'react-native-gifted-chat';
+import { Bubble, Send, SystemMessage } from 'react-native-gifted-chat';
 import { IconButton } from 'react-native-paper';
 
 export const renderBubble = (props) => {
@@ -58,5 +58,20 @@ export const renderLoading = () => {
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <ActivityIndicator size='large' color='#6646ee' />
     </View>
+  );
+};
+
+export const renderSystemMessage = (props) => {
+  return (
+    <SystemMessage
+      {...props}
+      wrapperStyle={{
+        backgroundColor: '#6646ee',
+        opacity: 0.9,
+        borderRadius: 10,
+        padding: 4,
+      }}
+      textStyle={{ color: '#ffffff', fontSize: 12, fontWeight: '700' }}
+    />
   );
 };

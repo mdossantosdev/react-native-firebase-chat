@@ -5,6 +5,7 @@ import {
   renderSend,
   scrollToBottomComponent,
   renderLoading,
+  renderSystemMessage,
 } from '../components/GiftedChat';
 import { AuthContext } from '../contexts/AuthContext';
 import { sendMessage, sendLatestMessage } from '../api/firebaseAPI';
@@ -69,6 +70,7 @@ export default function RoomScreen({ route }) {
       renderSend={renderSend}
       scrollToBottomComponent={scrollToBottomComponent}
       renderLoading={renderLoading}
+      renderSystemMessage={renderSystemMessage}
     />
   );
 }
