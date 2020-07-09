@@ -46,7 +46,7 @@ export default function ChatApp() {
         name='Room'
         component={RoomScreen}
         options={({ route }) => ({
-          title: route.params.thread.name,
+          title: route.params.room.name,
         })}
       />
     </ChatAppStack.Navigator>

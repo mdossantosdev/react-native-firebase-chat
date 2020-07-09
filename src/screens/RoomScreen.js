@@ -16,14 +16,14 @@ export default function RoomScreen({ route }) {
   useStatusBar('light-content');
 
   const [messages, setMessages] = useState([]);
-  const { thread } = route.params;
+  const { room } = route.params;
   const { user } = useContext(AuthContext);
   const currentUser = user.toJSON();
 
   useEffect(() => {
     const messagesListener = firestore
-      .collection('THREADS')
-      .doc(thread._id)
+      .collection('ROOMS')
+      .doc(room._id)
       .collection('MESSAGES')
       .orderBy('createdAt', 'desc')
       .onSnapshot((querySnapshot) => {
@@ -56,8 +56,8 @@ export default function RoomScreen({ route }) {
   const handleSend = (messages) => {
     const text = messages[0].text;
 
-    sendMessage(thread, currentUser, text);
-    sendLatestMessage(thread, text);
+    sendMessage(room, currentUser, text);
+    sendLatestMessage(room, text);
   };
 
   return (

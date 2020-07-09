@@ -8,15 +8,15 @@ import { useStatusBar } from '../hooks/useStatusBar';
 export default function HomeScreen({ navigation }) {
   useStatusBar('light-content');
 
-  const [threads, setThreads] = useState([]);
+  const [rooms, setRooms] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = firestore
-      .collection('THREADS')
+      .collection('ROOMS')
       .orderBy('latestMessage.createdAt', 'desc')
       .onSnapshot((querySnapshot) => {
-        const threads = querySnapshot.docs.map((documentSnapshot) => {
+        const rooms = querySnapshot.docs.map((documentSnapshot) => {
           return {
             _id: documentSnapshot.id,
             name: '',
@@ -27,7 +27,7 @@ export default function HomeScreen({ navigation }) {
           };
         });
 
-        setThreads(threads);
+        setRooms(rooms);
 
         if (isLoading) setIsLoading(false);
       });
@@ -41,7 +41,7 @@ export default function HomeScreen({ navigation }) {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      onPress={() => navigation.navigate('Room', { thread: item })}
+      onPress={() => navigation.navigate('Room', { room: item })}
     >
       <List.Item
         title={item.name}
@@ -57,7 +57,7 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <FlatList
-        data={threads}
+        data={rooms}
         renderItem={renderItem}
         keyExtractor={(item) => item._id}
         ItemSeparatorComponent={() => <Divider />}

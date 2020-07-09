@@ -1,9 +1,29 @@
 import { firestore } from '../config/firebase';
 
+export const createRoom = async (roomName) => {
+  try {
+    const ref = await firestore.collection('ROOMS').add({
+      name: roomName,
+      latestMessage: {
+        text: `You have joined the room ${roomName}`,
+        createdAt: new Date().getTime(),
+      },
+    });
+
+    await ref.collection('MESSAGES').add({
+      text: `You have joined the room ${roomName}`,
+      createdAt: new Date().getTime(),
+      system: true,
+    });
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+
 export const sendMessage = async (thread, user, text) => {
   try {
     await firestore
-      .collection('THREADS')
+      .collection('ROOMS')
       .doc(thread._id)
       .collection('MESSAGES')
       .add({
@@ -22,7 +42,7 @@ export const sendMessage = async (thread, user, text) => {
 export const sendLatestMessage = async (thread, text) => {
   try {
     await firestore
-      .collection('THREADS')
+      .collection('ROOMS')
       .doc(thread._id)
       .set(
         {
@@ -33,26 +53,6 @@ export const sendLatestMessage = async (thread, text) => {
         },
         { merge: true }
       );
-  } catch (err) {
-    console.log(err.message);
-  }
-};
-
-export const createRoom = async (roomName) => {
-  try {
-    const ref = await firestore.collection('THREADS').add({
-      name: roomName,
-      latestMessage: {
-        text: `You have joined the room ${roomName}`,
-        createdAt: new Date().getTime(),
-      },
-    });
-
-    await ref.collection('MESSAGES').add({
-      text: `You have joined the room ${roomName}`,
-      createdAt: new Date().getTime(),
-      system: true,
-    });
   } catch (err) {
     console.log(err.message);
   }
