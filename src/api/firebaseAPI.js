@@ -1,28 +1,28 @@
-import { firebase } from '../config/firebase';
+import { firebase, auth } from '../config/firebase';
 
-export async function register(email, password) {
+export const register = async (email, password) => {
   try {
-    await firebase.auth().createUserWithEmailAndPassword(email, password);
+    await auth.createUserWithEmailAndPassword(email, password);
   } catch (err) {
     console.log(err.message);
   }
-}
+};
 
-export async function login(email, password) {
+export const login = async (email, password) => {
   try {
-    await firebase.auth().signInWithEmailAndPassword(email, password);
+    await auth.signInWithEmailAndPassword(email, password);
   } catch (err) {
     console.log(err.message);
   }
-}
+};
 
-export async function logout() {
+export const logout = async () => {
   try {
-    await firebase.auth().signOut();
+    await auth.signOut();
   } catch (err) {
     console.log(err.message);
   }
-}
+};
 
 export async function sendMessage(thread, user, text) {
   try {
