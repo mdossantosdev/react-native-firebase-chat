@@ -8,9 +8,9 @@ import {
   renderSystemMessage,
 } from '../components/GiftedChat';
 import { AuthContext } from '../contexts/AuthContext';
-import { sendMessage, sendLatestMessage } from '../api/firebaseAPI';
-import { firebase } from '../config/firebase';
-import useStatusBar from '../hooks/useStatusBar';
+import { sendMessage, sendLatestMessage } from '../api/firestoreAPI';
+import { firestore } from '../config/firebase';
+import { useStatusBar } from '../hooks/useStatusBar';
 
 export default function RoomScreen({ route }) {
   useStatusBar('light-content');
@@ -21,8 +21,7 @@ export default function RoomScreen({ route }) {
   const currentUser = user.toJSON();
 
   useEffect(() => {
-    const messagesListener = firebase
-      .firestore()
+    const messagesListener = firestore
       .collection('THREADS')
       .doc(thread._id)
       .collection('MESSAGES')

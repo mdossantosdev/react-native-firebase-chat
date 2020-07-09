@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, FlatList, TouchableOpacity } from 'react-native';
 import { List, Divider } from 'react-native-paper';
 import Loading from '../components/Loading';
-import { firebase } from '../config/firebase';
-import useStatusBar from '../hooks/useStatusBar';
+import { firestore } from '../config/firebase';
+import { useStatusBar } from '../hooks/useStatusBar';
 
 export default function HomeScreen({ navigation }) {
   useStatusBar('light-content');
@@ -12,8 +12,7 @@ export default function HomeScreen({ navigation }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = firebase
-      .firestore()
+    const unsubscribe = firestore
       .collection('THREADS')
       .orderBy('latestMessage.createdAt', 'desc')
       .onSnapshot((querySnapshot) => {

@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { Title } from 'react-native-paper';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
-import { login } from '../api/firebaseAPI';
+import { login } from '../api/firebaseAuthAPI';
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');

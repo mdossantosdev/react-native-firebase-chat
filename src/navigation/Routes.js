@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { AuthContext } from '../contexts/AuthContext';
-import { firebase } from '../config/firebase';
+import { auth } from '../config/firebase';
 import AppStack from './AppStack';
 import AuthStack from './AuthStack';
 import Loading from '../components/Loading';
@@ -11,7 +11,7 @@ export default function Routes() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const subscriber = firebase.auth().onAuthStateChanged((user) => {
+    const subscriber = auth.onAuthStateChanged((user) => {
       try {
         user ? setUser(user) : setUser(null);
         setIsLoading(false);

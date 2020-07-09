@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { Title, IconButton } from 'react-native-paper';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
-import { register } from '../api/firebaseAPI';
+import { register } from '../api/firebaseAuthAPI';
 
 export default function RegisterScreen({ navigation }) {
   const [email, setEmail] = useState('');

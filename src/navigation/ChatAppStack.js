@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { IconButton } from 'react-native-paper';
 import HomeScreen from '../screens/HomeScreen';
 import RoomScreen from '../screens/RoomScreen';
-import { logout } from '../api/firebaseAPI';
+import { logout } from '../api/firebaseAuthAPI';
 
 const ChatAppStack = createStackNavigator();
 
