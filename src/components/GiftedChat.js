@@ -5,6 +5,7 @@ import {
   Send,
   SystemMessage,
   InputToolbar,
+  Composer,
 } from 'react-native-gifted-chat';
 import { IconButton } from 'react-native-paper';
 
@@ -29,24 +30,6 @@ export const renderBubble = (props) => {
         },
       }}
     />
-  );
-};
-
-export const renderSend = (props) => {
-  return (
-    <Send
-      {...props}
-      disabled={!props.text}
-      containerStyle={{
-        width: 44,
-        height: 44,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginHorizontal: 4,
-      }}
-    >
-      <IconButton icon='send-circle' size={32} color='#6646ee' />
-    </Send>
   );
 };
 
@@ -88,7 +71,40 @@ export const renderInputToolbar = (props) => (
       backgroundColor: '#E6E9EF',
       borderTopWidth: 0,
       paddingVertical: 5,
+      paddingHorizontal: 2,
     }}
     primaryStyle={{ alignItems: 'center' }}
   />
 );
+
+export const renderComposer = (props) => (
+  <Composer
+    {...props}
+    textInputStyle={{
+      backgroundColor: '#ffffff',
+      borderWidth: 0,
+      borderRadius: 15,
+      paddingTop: 8.5,
+      paddingHorizontal: 10,
+      marginLeft: 0,
+    }}
+  />
+);
+
+export const renderSend = (props) => {
+  return (
+    <Send
+      {...props}
+      disabled={!props.text}
+      containerStyle={{
+        width: 44,
+        height: 44,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginHorizontal: 3,
+      }}
+    >
+      <IconButton icon='send-circle' size={32} color='#6646ee' />
+    </Send>
+  );
+};

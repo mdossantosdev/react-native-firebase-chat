@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { GiftedChat, Message } from 'react-native-gifted-chat';
+import { GiftedChat } from 'react-native-gifted-chat';
 import {
   renderBubble,
   renderSend,
@@ -7,6 +7,7 @@ import {
   renderLoading,
   renderSystemMessage,
   renderInputToolbar,
+  renderComposer,
 } from '../components/GiftedChat';
 import { AuthContext } from '../contexts/AuthContext';
 import { sendMessage, sendLatestMessage } from '../api/firestoreAPI';
@@ -75,8 +76,9 @@ export default function RoomScreen({ route }) {
       scrollToBottomComponent={scrollToBottomComponent}
       renderLoading={renderLoading}
       renderSystemMessage={renderSystemMessage}
+      messagesContainerStyle={{ backgroundColor: 'white', paddingBottom: 8 }}
       renderInputToolbar={renderInputToolbar}
-      messagesContainerStyle={{ paddingBottom: 8 }}
+      renderComposer={renderComposer}
     />
   );
 }
