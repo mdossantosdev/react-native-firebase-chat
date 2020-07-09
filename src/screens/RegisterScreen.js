@@ -16,6 +16,7 @@ export default function RegisterScreen({ navigation }) {
         labelName='Email'
         value={email}
         autoCapitalize='none'
+        keyboardType='email-address'
         onChangeText={(userEmail) => setEmail(userEmail)}
       />
       <FormInput

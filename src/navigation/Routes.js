@@ -20,7 +20,7 @@ export default function Routes() {
       }
     });
 
-    return subscriber;
+    return () => subscriber();
   }, []);
 
   if (isLoading) {

@@ -20,11 +20,11 @@ export const createRoom = async (roomName) => {
   }
 };
 
-export const sendMessage = async (thread, user, text) => {
+export const sendMessage = async (room, user, text) => {
   try {
     await firestore
       .collection('ROOMS')
-      .doc(thread._id)
+      .doc(room._id)
       .collection('MESSAGES')
       .add({
         text,
@@ -39,11 +39,11 @@ export const sendMessage = async (thread, user, text) => {
   }
 };
 
-export const sendLatestMessage = async (thread, text) => {
+export const sendLatestMessage = async (room, text) => {
   try {
     await firestore
       .collection('ROOMS')
-      .doc(thread._id)
+      .doc(room._id)
       .set(
         {
           latestMessage: {
