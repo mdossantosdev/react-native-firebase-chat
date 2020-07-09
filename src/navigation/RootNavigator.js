@@ -2,11 +2,11 @@ import React, { useContext, useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { AuthContext } from '../contexts/AuthContext';
 import { auth } from '../config/firebase';
-import AppStack from './AppStack';
-import AuthStack from './AuthStack';
+import AppNavigator from './AppNavigator';
+import AuthNavigator from './AuthNavigator';
 import Loading from '../components/Loading';
 
-export default function Routes() {
+export default function RootNavigator() {
   const { user, setUser } = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,7 +29,7 @@ export default function Routes() {
 
   return (
     <NavigationContainer>
-      {user ? <AppStack /> : <AuthStack />}
+      {user ? <AppNavigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
 }

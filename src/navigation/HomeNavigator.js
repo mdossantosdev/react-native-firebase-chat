@@ -5,11 +5,11 @@ import HomeScreen from '../screens/HomeScreen';
 import RoomScreen from '../screens/RoomScreen';
 import { logout } from '../api/firebaseAuthAPI';
 
-const ChatAppStack = createStackNavigator();
+const Stack = createStackNavigator();
 
-export default function ChatApp() {
+export default function HomeNavigator() {
   return (
-    <ChatAppStack.Navigator
+    <Stack.Navigator
       screenOptions={{
         headerStyle: {
           backgroundColor: '#6646ee',
@@ -20,7 +20,7 @@ export default function ChatApp() {
         },
       }}
     >
-      <ChatAppStack.Screen
+      <Stack.Screen
         name='Home'
         component={HomeScreen}
         options={({ navigation }) => ({
@@ -42,13 +42,13 @@ export default function ChatApp() {
           ),
         })}
       />
-      <ChatAppStack.Screen
+      <Stack.Screen
         name='Room'
         component={RoomScreen}
         options={({ route }) => ({
           title: route.params.room.name,
         })}
       />
-    </ChatAppStack.Navigator>
+    </Stack.Navigator>
   );
 }

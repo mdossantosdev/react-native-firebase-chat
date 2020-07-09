@@ -5,7 +5,7 @@ import RegisterScreen from '../screens/RegisterScreen';
 
 const Stack = createStackNavigator();
 
-export default function AuthStack() {
+export default function AuthNavigator() {
   return (
     <Stack.Navigator initialRouteName='Login' headerMode='none'>
       <Stack.Screen name='Login' component={LoginScreen} />
