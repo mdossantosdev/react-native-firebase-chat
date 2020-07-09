@@ -1,6 +1,11 @@
 import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
-import { Bubble, Send, SystemMessage } from 'react-native-gifted-chat';
+import {
+  Bubble,
+  Send,
+  SystemMessage,
+  InputToolbar,
+} from 'react-native-gifted-chat';
 import { IconButton } from 'react-native-paper';
 
 export const renderBubble = (props) => {
@@ -67,7 +72,7 @@ export const renderSystemMessage = (props) => {
       {...props}
       wrapperStyle={{
         backgroundColor: '#6646ee',
-        opacity: 0.9,
+        opacity: 0.8,
         borderRadius: 10,
         padding: 4,
       }}
@@ -75,3 +80,15 @@ export const renderSystemMessage = (props) => {
     />
   );
 };
+
+export const renderInputToolbar = (props) => (
+  <InputToolbar
+    {...props}
+    containerStyle={{
+      backgroundColor: '#E6E9EF',
+      borderTopWidth: 0,
+      paddingVertical: 5,
+    }}
+    primaryStyle={{ alignItems: 'center' }}
+  />
+);
