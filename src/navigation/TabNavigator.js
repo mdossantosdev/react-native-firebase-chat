@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { IconButton } from 'react-native-paper';
 import HomeNavigator from './HomeNavigator';
+import SettingsScreen from '../screens/SettingsScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -40,6 +41,21 @@ export default function TabNavigator() {
             />
           ),
         })}
+      />
+      <Tab.Screen
+        name='Settings'
+        component={SettingsScreen}
+        options={{
+          title: 'Settings',
+          tabBarIcon: ({ focused, color, size }) => (
+            <IconButton
+              focused={focused}
+              icon='tune'
+              size={size}
+              color={color}
+            />
+          ),
+        }}
       />
     </Tab.Navigator>
   );
