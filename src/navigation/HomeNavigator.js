@@ -24,6 +24,7 @@ export default function HomeNavigator() {
         name='Home'
         component={HomeScreen}
         options={({ navigation }) => ({
+          headerTitle: 'Rooms',
           headerLeft: () => (
             <IconButton
               icon='logout-variant'
