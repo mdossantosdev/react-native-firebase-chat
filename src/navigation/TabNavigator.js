@@ -1,11 +1,31 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { IconButton } from 'react-native-paper';
 import HomeNavigator from './HomeNavigator';
 import SettingsScreen from '../screens/SettingsScreen';
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+const screenOptions = {
+  headerStyle: {
+    backgroundColor: '#6646ee',
+  },
+  headerTintColor: '#ffffff',
+  headerTitleStyle: {
+    fontSize: 22,
+  },
+};
+
+function SettingsScreenStack() {
+  return (
+    <Stack.Navigator screenOptions={screenOptions}>
+      <Stack.Screen name='Settings' component={SettingsScreen} />
+    </Stack.Navigator>
+  );
+}
 
 export default function TabNavigator() {
   const getTabBarVisibility = (route) => {
@@ -43,8 +63,8 @@ export default function TabNavigator() {
         })}
       />
       <Tab.Screen
-        name='Settings'
-        component={SettingsScreen}
+        name='SettingsStack'
+        component={SettingsScreenStack}
         options={{
           title: 'Settings',
           tabBarIcon: ({ focused, color, size }) => (
