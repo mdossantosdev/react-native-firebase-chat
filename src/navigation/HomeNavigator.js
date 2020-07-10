@@ -48,6 +48,7 @@ export default function HomeNavigator() {
         component={RoomScreen}
         options={({ route }) => ({
           title: route.params.room.name,
+          headerBackTitle: 'Back',
         })}
       />
     </Stack.Navigator>
