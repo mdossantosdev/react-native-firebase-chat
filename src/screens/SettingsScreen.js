@@ -1,10 +1,16 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { List, Switch, Divider } from 'react-native-paper';
 
 export default function SettingsScreen() {
   return (
     <View style={styles.container}>
-      <Text>Settings Screen</Text>
+      <List.Item
+        title='Dark theme'
+        left={(props) => <List.Icon {...props} icon='brightness-4' />}
+        right={() => <Switch value={true} />}
+      />
+      <Divider />
     </View>
   );
 }
@@ -12,7 +18,5 @@ export default function SettingsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
