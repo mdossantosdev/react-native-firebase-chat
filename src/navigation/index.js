@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import { Provider as PaperProvider } from 'react-native-paper';
-import { ThemeContext } from '../contexts/ThemeContext';
-import { AuthProvider } from '../contexts/AuthContext';
+import { ThemeContext } from '../context/ThemeContext';
+import { AuthProvider } from '../context/AuthContext';
 import RootNavigator from './RootNavigator';
 import { CombinedDarkTheme, CombinedDefaultTheme } from '../theme';
 

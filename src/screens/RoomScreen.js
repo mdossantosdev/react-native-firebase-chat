@@ -11,7 +11,7 @@ import {
   renderSend,
   renderActions,
 } from '../components/GiftedChat';
-import { AuthContext } from '../contexts/AuthContext';
+import { AuthContext } from '../context/AuthContext';
 import { sendMessage, sendLatestMessage } from '../api/firestoreAPI';
 import { firestore } from '../config/firebase';
 import { useStatusBar } from '../hooks/useStatusBar';

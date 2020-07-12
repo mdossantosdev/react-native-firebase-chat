@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { List, Switch, Divider } from 'react-native-paper';
-import { ThemeContext } from '../contexts/ThemeContext';
+import { ThemeContext } from '../context/ThemeContext';
 
 export default function SettingsScreen() {
   const { toggleTheme, isDarkTheme } = useContext(ThemeContext);
