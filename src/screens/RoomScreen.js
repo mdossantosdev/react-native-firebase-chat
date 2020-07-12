@@ -76,7 +76,7 @@ export default function RoomScreen({ route }) {
       scrollToBottomComponent={scrollToBottomComponent}
       renderLoading={renderLoading}
       renderSystemMessage={renderSystemMessage}
-      messagesContainerStyle={{ backgroundColor: 'white', paddingBottom: 8 }}
+      messagesContainerStyle={{ paddingBottom: 8 }}
       renderInputToolbar={renderInputToolbar}
       renderComposer={renderComposer}
     />

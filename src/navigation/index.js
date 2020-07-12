@@ -1,33 +1,9 @@
 import React, { useState, useCallback, useMemo } from 'react';
-import {
-  DarkTheme as NavigationDarkTheme,
-  DefaultTheme as NavigationDefaultTheme,
-} from '@react-navigation/native';
-import {
-  DarkTheme as PaperDarkTheme,
-  DefaultTheme as PaperDefaultTheme,
-  Provider as PaperProvider,
-} from 'react-native-paper';
+import { Provider as PaperProvider } from 'react-native-paper';
 import { ThemeContext } from '../contexts/ThemeContext';
 import { AuthProvider } from '../contexts/AuthContext';
 import RootNavigator from './RootNavigator';
-
-const CombinedDefaultTheme = {
-  ...PaperDefaultTheme,
-  ...NavigationDefaultTheme,
-  colors: {
-    ...PaperDefaultTheme.colors,
-    ...NavigationDefaultTheme.colors,
-  },
-};
-const CombinedDarkTheme = {
-  ...PaperDarkTheme,
-  ...NavigationDarkTheme,
-  colors: {
-    ...PaperDarkTheme.colors,
-    ...NavigationDarkTheme.colors,
-  },
-};
+import { CombinedDarkTheme, CombinedDefaultTheme } from '../theme';
 
 export default function Providers() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);

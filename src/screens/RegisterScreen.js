@@ -34,7 +34,7 @@ export default function RegisterScreen({ navigation }) {
       <IconButton
         icon='keyboard-backspace'
         size={30}
-        color='#6646ee'
+        // color='#6646ee'
         style={styles.navButton}
         onPress={() => navigation.goBack()}
       />
@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
   },
   titleText: {
     fontSize: 22,
