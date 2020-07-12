@@ -9,23 +9,23 @@ import {
 } from 'react-native-gifted-chat';
 import { IconButton } from 'react-native-paper';
 
-export const renderBubble = (props) => {
+export const renderBubble = ({ props, colors }) => {
   return (
     <Bubble
       {...props}
       wrapperStyle={{
         left: {
-          backgroundColor: '#2d3436',
+          backgroundColor: '#e6e9ef',
         },
         right: {
-          backgroundColor: '#6646ee',
+          backgroundColor: colors.primary,
         },
       }}
       textStyle={{
-        right: {
-          color: '#ffffff',
-        },
         left: {
+          color: '#000000',
+        },
+        right: {
           color: '#ffffff',
         },
       }}
@@ -33,33 +33,33 @@ export const renderBubble = (props) => {
   );
 };
 
-export const scrollToBottomComponent = () => {
+export const scrollToBottomComponent = (colors) => {
   return (
     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-      <IconButton icon='chevron-down' size={34} color='#6646ee' />
+      <IconButton icon='chevron-down' size={34} color={colors.primary} />
     </View>
   );
 };
 
-export const renderLoading = () => {
+export const renderLoading = (colors) => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <ActivityIndicator size='large' color='#6646ee' />
+      <ActivityIndicator size='large' color={colors.primary} />
     </View>
   );
 };
 
-export const renderSystemMessage = (props) => {
+export const renderSystemMessage = ({ props, colors }) => {
   return (
     <SystemMessage
       {...props}
       wrapperStyle={{
-        backgroundColor: '#6646ee',
-        opacity: 0.8,
+        backgroundColor: colors.primary,
+        opacity: 0.9,
         borderRadius: 10,
         padding: 4,
       }}
-      textStyle={{ color: '#ffffff', fontSize: 12, fontWeight: '700' }}
+      textStyle={{ color: '#ffffff', fontSize: 12, fontWeight: '500' }}
     />
   );
 };
@@ -68,7 +68,7 @@ export const renderInputToolbar = (props) => (
   <InputToolbar
     {...props}
     containerStyle={{
-      backgroundColor: '#E6E9EF',
+      backgroundColor: '#e6e9ef',
       borderTopWidth: 0,
       paddingVertical: 5,
       paddingHorizontal: 2,
@@ -91,7 +91,7 @@ export const renderComposer = (props) => (
   />
 );
 
-export const renderSend = (props) => {
+export const renderSend = ({ props, colors }) => {
   return (
     <Send
       {...props}
@@ -104,7 +104,7 @@ export const renderSend = (props) => {
         marginHorizontal: 3,
       }}
     >
-      <IconButton icon='send-circle' size={32} color='#6646ee' />
+      <IconButton icon='send-circle' size={32} color={colors.primary} />
     </Send>
   );
 };

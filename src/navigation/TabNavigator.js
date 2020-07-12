@@ -2,24 +2,26 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { IconButton } from 'react-native-paper';
+import { IconButton, useTheme } from 'react-native-paper';
 import HomeNavigator from './HomeNavigator';
 import SettingsScreen from '../screens/SettingsScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-const screenOptions = {
-  headerStyle: {
-    backgroundColor: '#6646ee',
-  },
-  headerTintColor: '#ffffff',
-  headerTitleStyle: {
-    fontSize: 22,
-  },
-};
-
 function SettingsScreenStack() {
+  const { colors } = useTheme();
+
+  const screenOptions = {
+    headerStyle: {
+      backgroundColor: colors.primary,
+    },
+    headerTintColor: '#ffffff',
+    headerTitleStyle: {
+      fontSize: 20,
+    },
+  };
+
   return (
     <Stack.Navigator screenOptions={screenOptions}>
       <Stack.Screen name='Settings' component={SettingsScreen} />
@@ -28,6 +30,8 @@ function SettingsScreenStack() {
 }
 
 export default function TabNavigator() {
+  const { colors } = useTheme();
+
   const getTabBarVisibility = (route) => {
     const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
 
@@ -42,7 +46,7 @@ export default function TabNavigator() {
     <Tab.Navigator
       initialRouteName='Home'
       tabBarOptions={{
-        activeTintColor: '#6646ee',
+        activeTintColor: colors.primary,
         inactiveTintColor: 'gray',
       }}
     >

@@ -6,6 +6,7 @@ import {
   DarkTheme as PaperDarkTheme,
   DefaultTheme as PaperDefaultTheme,
 } from 'react-native-paper';
+import { lightTheme } from './theme';
 
 export const CombinedDefaultTheme = {
   ...PaperDefaultTheme,
@@ -13,6 +14,7 @@ export const CombinedDefaultTheme = {
   colors: {
     ...PaperDefaultTheme.colors,
     ...NavigationDefaultTheme.colors,
+    ...lightTheme.colors,
   },
 };
 

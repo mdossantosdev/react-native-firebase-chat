@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { useTheme } from 'react-native-paper';
 import { GiftedChat } from 'react-native-gifted-chat';
 import {
   renderBubble,
@@ -16,6 +17,8 @@ import { useStatusBar } from '../hooks/useStatusBar';
 
 export default function RoomScreen({ route }) {
   useStatusBar('light-content');
+
+  const { colors } = useTheme();
 
   const [messages, setMessages] = useState([]);
   const { room } = route.params;
@@ -71,11 +74,11 @@ export default function RoomScreen({ route }) {
       alwaysShowSend
       scrollToBottom
       alignTop
-      renderBubble={renderBubble}
-      renderSend={renderSend}
-      scrollToBottomComponent={scrollToBottomComponent}
-      renderLoading={renderLoading}
-      renderSystemMessage={renderSystemMessage}
+      renderBubble={(props) => renderBubble({ props, colors })}
+      renderSend={(props) => renderSend({ props, colors })}
+      scrollToBottomComponent={() => scrollToBottomComponent(colors)}
+      renderLoading={() => renderLoading(colors)}
+      renderSystemMessage={(props) => renderSystemMessage({ props, colors })}
       messagesContainerStyle={{ paddingBottom: 8 }}
       renderInputToolbar={renderInputToolbar}
       renderComposer={renderComposer}

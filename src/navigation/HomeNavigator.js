@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { IconButton } from 'react-native-paper';
+import { IconButton, useTheme } from 'react-native-paper';
 import HomeScreen from '../screens/HomeScreen';
 import RoomScreen from '../screens/RoomScreen';
 import { logout } from '../api/firebaseAuthAPI';
@@ -8,15 +8,17 @@ import { logout } from '../api/firebaseAuthAPI';
 const Stack = createStackNavigator();
 
 export default function HomeNavigator() {
+  const { colors } = useTheme();
+
   return (
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: '#6646ee',
+          backgroundColor: colors.primary,
         },
         headerTintColor: '#ffffff',
         headerTitleStyle: {
-          fontSize: 22,
+          fontSize: 20,
         },
       }}
     >

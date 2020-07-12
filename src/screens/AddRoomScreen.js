@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { IconButton, Title } from 'react-native-paper';
+import { IconButton, Title, useTheme } from 'react-native-paper';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import { createRoom } from '../api/firestoreAPI';
@@ -9,6 +9,7 @@ import { useStatusBar } from '../hooks/useStatusBar';
 export default function AddRoomScreen({ navigation }) {
   useStatusBar('dark-content');
 
+  const { colors } = useTheme();
   const [roomName, setRoomName] = useState('');
 
   const handlePress = () => {
@@ -24,7 +25,7 @@ export default function AddRoomScreen({ navigation }) {
         <IconButton
           icon='close-circle'
           size={36}
-          color='#6646ee'
+          color={colors.primary}
           onPress={() => navigation.goBack()}
         />
       </View>

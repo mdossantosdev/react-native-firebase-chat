@@ -4,13 +4,13 @@ import { TextInput } from 'react-native-paper';
 
 const { width, height } = Dimensions.get('screen');
 
-export default function FormInput({ labelName, ...rest }) {
+export default function FormInput({ labelName, ...props }) {
   return (
     <TextInput
+      {...props}
       label={labelName}
       style={styles.input}
       numberOfLines={1}
-      {...rest}
     />
   );
 }

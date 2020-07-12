@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Title, IconButton } from 'react-native-paper';
+import { Title, IconButton, useTheme } from 'react-native-paper';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import { register } from '../api/firebaseAuthAPI';
 
 export default function RegisterScreen({ navigation }) {
+  const { colors } = useTheme();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -34,7 +35,7 @@ export default function RegisterScreen({ navigation }) {
       <IconButton
         icon='keyboard-backspace'
         size={30}
-        // color='#6646ee'
+        color={colors.primary}
         style={styles.navButton}
         onPress={() => navigation.goBack()}
       />
