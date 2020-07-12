@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { IconButton, useTheme } from 'react-native-paper';
 import HomeNavigator from './HomeNavigator';
 import SettingsScreen from '../screens/SettingsScreen';
+import { COLOR_WHITE_TEXT } from '../constants/Colors';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -16,7 +17,7 @@ function SettingsScreenStack() {
     headerStyle: {
       backgroundColor: colors.primary,
     },
-    headerTintColor: '#ffffff',
+    headerTintColor: COLOR_WHITE_TEXT,
     headerTitleStyle: {
       fontSize: 20,
     },
@@ -46,8 +47,8 @@ export default function TabNavigator() {
     <Tab.Navigator
       initialRouteName='Home'
       tabBarOptions={{
-        activeTintColor: colors.primary,
-        inactiveTintColor: 'gray',
+        activeTintColor: colors.activeTintColor,
+        inactiveTintColor: colors.inactiveTintColor,
       }}
     >
       <Tab.Screen

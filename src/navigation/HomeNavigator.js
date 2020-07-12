@@ -4,6 +4,7 @@ import { IconButton, useTheme } from 'react-native-paper';
 import HomeScreen from '../screens/HomeScreen';
 import RoomScreen from '../screens/RoomScreen';
 import { logout } from '../api/firebaseAuthAPI';
+import { COLOR_WHITE_TEXT } from '../constants/Colors';
 
 const Stack = createStackNavigator();
 
@@ -16,7 +17,7 @@ export default function HomeNavigator() {
         headerStyle: {
           backgroundColor: colors.primary,
         },
-        headerTintColor: '#ffffff',
+        headerTintColor: COLOR_WHITE_TEXT,
         headerTitleStyle: {
           fontSize: 20,
         },
@@ -31,7 +32,7 @@ export default function HomeNavigator() {
             <IconButton
               icon='logout-variant'
               size={24}
-              color='#ffffff'
+              color={COLOR_WHITE_TEXT}
               onPress={() => logout()}
             />
           ),
@@ -39,7 +40,7 @@ export default function HomeNavigator() {
             <IconButton
               icon='message-plus'
               size={24}
-              color='#ffffff'
+              color={COLOR_WHITE_TEXT}
               onPress={() => navigation.navigate('AddRoom')}
             />
           ),

@@ -8,25 +8,30 @@ import {
   Composer,
 } from 'react-native-gifted-chat';
 import { IconButton } from 'react-native-paper';
+import {
+  COLOR_PRIMARY,
+  DARK_COLOR_PRIMARY,
+  COLOR_WHITE_TEXT,
+} from '../constants/Colors';
 
-export const renderBubble = ({ props, colors }) => {
+export const renderBubble = (props) => {
   return (
     <Bubble
       {...props}
       wrapperStyle={{
         left: {
-          backgroundColor: '#e6e9ef',
+          backgroundColor: DARK_COLOR_PRIMARY,
         },
         right: {
-          backgroundColor: colors.primary,
+          backgroundColor: COLOR_PRIMARY,
         },
       }}
       textStyle={{
         left: {
-          color: '#000000',
+          color: COLOR_WHITE_TEXT,
         },
         right: {
-          color: '#ffffff',
+          color: COLOR_WHITE_TEXT,
         },
       }}
     />
@@ -55,20 +60,20 @@ export const renderSystemMessage = ({ props, colors }) => {
       {...props}
       wrapperStyle={{
         backgroundColor: colors.primary,
-        opacity: 0.9,
+        opacity: 0.6,
         borderRadius: 10,
         padding: 4,
       }}
-      textStyle={{ color: '#ffffff', fontSize: 12, fontWeight: '500' }}
+      textStyle={{ color: COLOR_WHITE_TEXT, fontSize: 12, fontWeight: '500' }}
     />
   );
 };
 
-export const renderInputToolbar = (props) => (
+export const renderInputToolbar = ({ props, colors }) => (
   <InputToolbar
     {...props}
     containerStyle={{
-      backgroundColor: '#e6e9ef',
+      backgroundColor: colors.inputToolbarColor,
       borderTopWidth: 0,
       paddingVertical: 5,
       paddingHorizontal: 2,
@@ -77,11 +82,12 @@ export const renderInputToolbar = (props) => (
   />
 );
 
-export const renderComposer = (props) => (
+export const renderComposer = ({ props, colors }) => (
   <Composer
     {...props}
     textInputStyle={{
-      backgroundColor: '#ffffff',
+      backgroundColor: colors.composerBackgroundColor,
+      color: colors.composerTextColor,
       borderWidth: 0,
       borderRadius: 15,
       paddingTop: 8.5,
@@ -91,7 +97,7 @@ export const renderComposer = (props) => (
   />
 );
 
-export const renderSend = ({ props, colors }) => {
+export const renderSend = (props) => {
   return (
     <Send
       {...props}
@@ -104,7 +110,7 @@ export const renderSend = ({ props, colors }) => {
         marginHorizontal: 3,
       }}
     >
-      <IconButton icon='send-circle' size={32} color={colors.primary} />
+      <IconButton icon='send' size={30} color={COLOR_PRIMARY} />
     </Send>
   );
 };

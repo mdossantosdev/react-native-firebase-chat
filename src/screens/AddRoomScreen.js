@@ -5,9 +5,10 @@ import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import { createRoom } from '../api/firestoreAPI';
 import { useStatusBar } from '../hooks/useStatusBar';
+import { COLOR_WHITE_TEXT } from '../constants/Colors';
 
 export default function AddRoomScreen({ navigation }) {
-  useStatusBar('dark-content');
+  useStatusBar(useTheme().dark ? 'light-content' : 'dark-content');
 
   const { colors } = useTheme();
   const [roomName, setRoomName] = useState('');
@@ -36,6 +37,7 @@ export default function AddRoomScreen({ navigation }) {
           value={roomName}
           onChangeText={(text) => setRoomName(text)}
           clearButtonMode='while-editing'
+          colors={colors}
         />
         <FormButton
           title='Create'
@@ -70,5 +72,6 @@ const styles = StyleSheet.create({
   },
   buttonLabel: {
     fontSize: 20,
+    color: COLOR_WHITE_TEXT,
   },
 });

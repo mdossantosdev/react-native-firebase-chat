@@ -4,6 +4,7 @@ import { Title, IconButton, useTheme } from 'react-native-paper';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import { register } from '../api/firebaseAuthAPI';
+import { COLOR_WHITE_TEXT } from '../constants/Colors';
 
 export default function RegisterScreen({ navigation }) {
   const { colors } = useTheme();
@@ -19,18 +20,21 @@ export default function RegisterScreen({ navigation }) {
         autoCapitalize='none'
         keyboardType='email-address'
         onChangeText={(userEmail) => setEmail(userEmail)}
+        colors={colors}
       />
       <FormInput
         labelName='Password'
         value={password}
         secureTextEntry
         onChangeText={(userPassword) => setPassword(userPassword)}
+        colors={colors}
       />
       <FormButton
         title='Register'
         modeValue='contained'
         labelStyle={styles.registerButtonLabel}
         onPress={() => register(email, password)}
+        disabled={email.length === 0}
       />
       <IconButton
         icon='keyboard-backspace'
@@ -55,6 +59,7 @@ const styles = StyleSheet.create({
   },
   registerButtonLabel: {
     fontSize: 20,
+    color: COLOR_WHITE_TEXT,
   },
   navButton: {
     marginTop: 10,

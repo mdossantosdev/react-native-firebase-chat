@@ -2,13 +2,13 @@ import React, { useState, useContext, useEffect } from 'react';
 import { useTheme } from 'react-native-paper';
 import { GiftedChat } from 'react-native-gifted-chat';
 import {
-  renderBubble,
-  renderSend,
-  scrollToBottomComponent,
   renderLoading,
   renderSystemMessage,
+  renderBubble,
+  scrollToBottomComponent,
   renderInputToolbar,
   renderComposer,
+  renderSend,
 } from '../components/GiftedChat';
 import { AuthContext } from '../contexts/AuthContext';
 import { sendMessage, sendLatestMessage } from '../api/firestoreAPI';
@@ -19,7 +19,6 @@ export default function RoomScreen({ route }) {
   useStatusBar('light-content');
 
   const { colors } = useTheme();
-
   const [messages, setMessages] = useState([]);
   const { room } = route.params;
   const { user } = useContext(AuthContext);
@@ -74,14 +73,14 @@ export default function RoomScreen({ route }) {
       alwaysShowSend
       scrollToBottom
       alignTop
-      renderBubble={(props) => renderBubble({ props, colors })}
-      renderSend={(props) => renderSend({ props, colors })}
-      scrollToBottomComponent={() => scrollToBottomComponent(colors)}
-      renderLoading={() => renderLoading(colors)}
-      renderSystemMessage={(props) => renderSystemMessage({ props, colors })}
       messagesContainerStyle={{ paddingBottom: 8 }}
-      renderInputToolbar={renderInputToolbar}
-      renderComposer={renderComposer}
+      renderSend={renderSend}
+      renderBubble={renderBubble}
+      renderLoading={() => renderLoading(colors)}
+      renderComposer={(props) => renderComposer({ props, colors })}
+      renderInputToolbar={(props) => renderInputToolbar({ props, colors })}
+      renderSystemMessage={(props) => renderSystemMessage({ props, colors })}
+      scrollToBottomComponent={() => scrollToBottomComponent(colors)}
     />
   );
 }
