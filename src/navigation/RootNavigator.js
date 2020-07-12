@@ -6,7 +6,7 @@ import AppNavigator from './AppNavigator';
 import AuthNavigator from './AuthNavigator';
 import Loading from '../components/Loading';
 
-export default function RootNavigator() {
+export default function RootNavigator({ theme }) {
   const { user, setUser } = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -28,7 +28,7 @@ export default function RootNavigator() {
   }
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={theme}>
       {user ? <AppNavigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
