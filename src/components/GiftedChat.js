@@ -6,6 +6,7 @@ import {
   SystemMessage,
   InputToolbar,
   Composer,
+  Actions,
 } from 'react-native-gifted-chat';
 import { IconButton } from 'react-native-paper';
 import {
@@ -114,3 +115,31 @@ export const renderSend = (props) => {
     </Send>
   );
 };
+
+export const renderActions = (props) => (
+  <Actions
+    {...props}
+    containerStyle={{
+      width: 44,
+      height: 44,
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginLeft: 4,
+      marginRight: 4,
+      marginBottom: 0,
+    }}
+    icon={() => <IconButton icon='paperclip' size={30} color={COLOR_PRIMARY} />}
+    options={{
+      'Choose From Library': () => {
+        console.log('Choose From Library');
+      },
+      'Send Location': () => {
+        console.log('Send Location');
+      },
+      Cancel: () => {
+        console.log('Cancel');
+      },
+    }}
+    optionTintColor={COLOR_PRIMARY}
+  />
+);

@@ -9,6 +9,7 @@ import {
   renderInputToolbar,
   renderComposer,
   renderSend,
+  renderActions,
 } from '../components/GiftedChat';
 import { AuthContext } from '../contexts/AuthContext';
 import { sendMessage, sendLatestMessage } from '../api/firestoreAPI';
@@ -81,6 +82,7 @@ export default function RoomScreen({ route }) {
       renderInputToolbar={(props) => renderInputToolbar({ props, colors })}
       renderSystemMessage={(props) => renderSystemMessage({ props, colors })}
       scrollToBottomComponent={() => scrollToBottomComponent(colors)}
+      renderActions={renderActions}
     />
   );
 }
