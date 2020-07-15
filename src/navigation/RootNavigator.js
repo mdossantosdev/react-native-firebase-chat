@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AuthContext } from '../context/AuthContext';
 import { auth } from '../config/firebase';
 import AppNavigator from './AppNavigator';
@@ -28,8 +29,10 @@ export default function RootNavigator({ theme }) {
   }
 
   return (
-    <NavigationContainer theme={theme}>
-      {user ? <AppNavigator /> : <AuthNavigator />}
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer theme={theme}>
+        {user ? <AppNavigator /> : <AuthNavigator />}
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }

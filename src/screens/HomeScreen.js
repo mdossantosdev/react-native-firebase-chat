@@ -61,6 +61,7 @@ export default function HomeScreen({ navigation }) {
         renderItem={renderItem}
         keyExtractor={(item) => item._id}
         ItemSeparatorComponent={() => <Divider />}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );
