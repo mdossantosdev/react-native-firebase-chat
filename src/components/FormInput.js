@@ -4,12 +4,13 @@ import { TextInput } from 'react-native-paper';
 
 const { width, height } = Dimensions.get('screen');
 
-export default function FormInput({ labelName, colors, ...props }) {
+export default function FormInput({ labelName, theme, ...props }) {
   return (
     <TextInput
       {...props}
       label={labelName}
-      style={styles(colors).input}
+      style={styles(theme.colors).input}
+      keyboardAppearance={theme.dark ? 'dark' : 'light'}
       numberOfLines={1}
     />
   );

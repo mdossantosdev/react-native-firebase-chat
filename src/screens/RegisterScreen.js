@@ -11,7 +11,7 @@ import { COLOR_WHITE_TEXT } from '../constants/Colors';
 export default function RegisterScreen({ navigation }) {
   useStatusBar(useTheme().dark ? 'light-content' : 'dark-content');
 
-  const { colors } = useTheme();
+  const theme = useTheme();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -25,14 +25,14 @@ export default function RegisterScreen({ navigation }) {
           autoCapitalize='none'
           keyboardType='email-address'
           onChangeText={(userEmail) => setEmail(userEmail)}
-          colors={colors}
+          theme={theme}
         />
         <FormInput
           labelName='Password'
           value={password}
           secureTextEntry
           onChangeText={(userPassword) => setPassword(userPassword)}
-          colors={colors}
+          theme={theme}
         />
         <FormButton
           title='Register'
@@ -44,7 +44,7 @@ export default function RegisterScreen({ navigation }) {
         <IconButton
           icon='keyboard-backspace'
           size={30}
-          color={colors.primary}
+          color={theme.colors.primary}
           style={styles.navButton}
           onPress={() => navigation.goBack()}
         />

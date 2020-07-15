@@ -11,7 +11,7 @@ import { COLOR_WHITE_TEXT } from '../constants/Colors';
 export default function AddRoomScreen({ navigation }) {
   useStatusBar(useTheme().dark ? 'light-content' : 'dark-content');
 
-  const { colors } = useTheme();
+  const theme = useTheme();
   const [roomName, setRoomName] = useState('');
 
   const handlePress = () => {
@@ -28,7 +28,7 @@ export default function AddRoomScreen({ navigation }) {
           <IconButton
             icon='close-circle'
             size={36}
-            color={colors.primary}
+            color={theme.colors.primary}
             onPress={() => navigation.goBack()}
           />
         </View>
@@ -39,7 +39,7 @@ export default function AddRoomScreen({ navigation }) {
             value={roomName}
             onChangeText={(text) => setRoomName(text)}
             clearButtonMode='while-editing'
-            colors={colors}
+            theme={theme}
           />
           <FormButton
             title='Create'
