@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { useTheme } from 'react-native-paper';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { GiftedChat } from 'react-native-gifted-chat';
+import { useTheme } from 'react-native-paper';
 import {
   renderLoading,
   renderSystemMessage,
@@ -20,9 +21,11 @@ export default function RoomScreen({ route }) {
   useStatusBar('light-content');
 
   const { colors } = useTheme();
+  const insets = useSafeAreaInsets();
+  const { user } = useContext(AuthContext);
   const [messages, setMessages] = useState([]);
   const { room } = route.params;
-  const { user } = useContext(AuthContext);
+
   const currentUser = user.toJSON();
 
   useEffect(() => {
@@ -74,7 +77,6 @@ export default function RoomScreen({ route }) {
       alwaysShowSend
       scrollToBottom
       alignTop
-      messagesContainerStyle={{ paddingBottom: 8 }}
       renderSend={renderSend}
       renderBubble={renderBubble}
       renderLoading={() => renderLoading(colors)}
@@ -83,6 +85,10 @@ export default function RoomScreen({ route }) {
       renderSystemMessage={(props) => renderSystemMessage({ props, colors })}
       scrollToBottomComponent={() => scrollToBottomComponent(colors)}
       renderActions={renderActions}
+      bottomOffset={insets.bottom}
+      textInputProps={{
+        keyboardAppearance: useTheme().dark ? 'dark' : 'light',
+      }}
     />
   );
 }

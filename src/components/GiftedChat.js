@@ -76,8 +76,6 @@ export const renderInputToolbar = ({ props, colors }) => (
     containerStyle={{
       backgroundColor: colors.inputToolbarColor,
       borderTopWidth: 0,
-      paddingVertical: 5,
-      paddingHorizontal: 2,
     }}
     primaryStyle={{ alignItems: 'center' }}
   />
@@ -108,7 +106,6 @@ export const renderSend = (props) => {
         height: 44,
         alignItems: 'center',
         justifyContent: 'center',
-        marginHorizontal: 3,
       }}
     >
       <IconButton icon='send' size={30} color={COLOR_PRIMARY} />
@@ -124,8 +121,7 @@ export const renderActions = (props) => (
       height: 44,
       alignItems: 'center',
       justifyContent: 'center',
-      marginLeft: 4,
-      marginRight: 4,
+      marginLeft: 0,
       marginBottom: 0,
     }}
     icon={() => <IconButton icon='paperclip' size={30} color={COLOR_PRIMARY} />}
