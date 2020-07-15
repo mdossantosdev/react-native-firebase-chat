@@ -30,6 +30,10 @@ function SettingsScreenStack() {
   );
 }
 
+function TabBarIcon(props) {
+  return <IconButton size={28} style={{ marginBottom: -3 }} {...props} />;
+}
+
 export default function TabNavigator() {
   const { colors } = useTheme();
 
@@ -49,19 +53,19 @@ export default function TabNavigator() {
       tabBarOptions={{
         activeTintColor: colors.activeTintColor,
         inactiveTintColor: colors.inactiveTintColor,
+        style: { backgroundColor: colors.backgroundTabBar },
       }}
     >
       <Tab.Screen
         name='Home'
         component={HomeNavigator}
         options={({ route }) => ({
-          title: 'Rooms',
+          tabBarLabel: 'Rooms',
           tabBarVisible: getTabBarVisibility(route),
-          tabBarIcon: ({ focused, color, size }) => (
-            <IconButton
+          tabBarIcon: ({ focused, color }) => (
+            <TabBarIcon
               focused={focused}
               icon='message-outline'
-              size={size}
               color={color}
             />
           ),
@@ -71,14 +75,9 @@ export default function TabNavigator() {
         name='SettingsStack'
         component={SettingsScreenStack}
         options={{
-          title: 'Settings',
-          tabBarIcon: ({ focused, color, size }) => (
-            <IconButton
-              focused={focused}
-              icon='tune'
-              size={size}
-              color={color}
-            />
+          tabBarLabel: 'Settings',
+          tabBarIcon: ({ focused, color }) => (
+            <TabBarIcon focused={focused} icon='tune' color={color} />
           ),
         }}
       />

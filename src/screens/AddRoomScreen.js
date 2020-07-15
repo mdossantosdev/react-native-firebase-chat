@@ -6,8 +6,8 @@ import {
   TouchableWithoutFeedback,
   Platform,
   Keyboard,
-  SafeAreaView,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { IconButton, Title, useTheme } from 'react-native-paper';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   },
   closeButtonContainer: {
     position: 'absolute',
-    top: 30,
+    top: 0,
     right: 0,
     zIndex: 1,
   },

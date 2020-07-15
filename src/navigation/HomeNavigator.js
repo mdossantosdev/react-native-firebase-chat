@@ -31,7 +31,7 @@ export default function HomeNavigator() {
           headerLeft: () => (
             <IconButton
               icon='logout-variant'
-              size={24}
+              size={26}
               color={COLOR_WHITE_TEXT}
               onPress={() => logout()}
             />
@@ -39,7 +39,7 @@ export default function HomeNavigator() {
           headerRight: () => (
             <IconButton
               icon='message-plus'
-              size={24}
+              size={26}
               color={COLOR_WHITE_TEXT}
               onPress={() => navigation.navigate('AddRoom')}
             />
