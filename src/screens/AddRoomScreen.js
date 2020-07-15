@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Platform,
+  Keyboard,
+  SafeAreaView,
+} from 'react-native';
 import { IconButton, Title, useTheme } from 'react-native-paper';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
@@ -21,33 +29,42 @@ export default function AddRoomScreen({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.closeButtonContainer}>
-        <IconButton
-          icon='close-circle'
-          size={36}
-          color={colors.primary}
-          onPress={() => navigation.goBack()}
-        />
-      </View>
-      <View style={styles.innerContainer}>
-        <Title>Create a new chat room</Title>
-        <FormInput
-          labelName='Room Name'
-          value={roomName}
-          onChangeText={(text) => setRoomName(text)}
-          clearButtonMode='while-editing'
-          colors={colors}
-        />
-        <FormButton
-          title='Create'
-          modeValue='contained'
-          labelStyle={styles.buttonLabel}
-          onPress={handlePress}
-          disabled={roomName.length === 0}
-        />
-      </View>
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.container}>
+            <View style={styles.closeButtonContainer}>
+              <IconButton
+                icon='close-circle'
+                size={36}
+                color={colors.primary}
+                onPress={() => navigation.goBack()}
+              />
+            </View>
+            <View style={styles.innerContainer}>
+              <Title>Create a new chat room</Title>
+              <FormInput
+                labelName='Room Name'
+                value={roomName}
+                onChangeText={(text) => setRoomName(text)}
+                clearButtonMode='while-editing'
+                colors={colors}
+              />
+              <FormButton
+                title='Create'
+                modeValue='contained'
+                labelStyle={styles.buttonLabel}
+                onPress={handlePress}
+                disabled={roomName.length === 0}
+              />
+            </View>
+          </View>
+        </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }
 
