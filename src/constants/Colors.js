@@ -2,6 +2,7 @@ export const COLOR_PRIMARY = '#0088CC';
 export const DARK_COLOR_PRIMARY = '#2C2C2C';
 export const COLOR_WHITE_TEXT = '#FFFFFF';
 export const COLOR_BLACK_TEXT = '#000000';
+export const COLOR_RED_TEXT = '#DD0000';
 export const COLOR_BACKGROUND = '#F5F5F5';
 export const DARK_COLOR_BACKGROUND = '#0D0D0D';
 export const COLOR_INPUT_BACKGROUND = '#D3D3D3';
