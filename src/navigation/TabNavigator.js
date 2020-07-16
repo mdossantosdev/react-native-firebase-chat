@@ -4,11 +4,32 @@ import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { IconButton, useTheme } from 'react-native-paper';
 import HomeNavigator from './HomeNavigator';
+import ProfileScreen from '../screens/ProfileScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import { COLOR_WHITE_TEXT } from '../constants/Colors';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
+
+function ProfileScreenStack() {
+  const { colors } = useTheme();
+
+  const screenOptions = {
+    headerStyle: {
+      backgroundColor: colors.primary,
+    },
+    headerTintColor: COLOR_WHITE_TEXT,
+    headerTitleStyle: {
+      fontSize: 20,
+    },
+  };
+
+  return (
+    <Stack.Navigator screenOptions={screenOptions}>
+      <Stack.Screen name='Profile' component={ProfileScreen} />
+    </Stack.Navigator>
+  );
+}
 
 function SettingsScreenStack() {
   const { colors } = useTheme();
@@ -31,7 +52,7 @@ function SettingsScreenStack() {
 }
 
 function TabBarIcon(props) {
-  return <IconButton size={28} style={{ marginBottom: -3 }} {...props} />;
+  return <IconButton {...props} size={28} style={{ marginBottom: -3 }} />;
 }
 
 export default function TabNavigator() {
@@ -56,6 +77,16 @@ export default function TabNavigator() {
         style: { backgroundColor: colors.backgroundTabBar },
       }}
     >
+      <Tab.Screen
+        name='ProfileStack'
+        component={ProfileScreenStack}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({ focused, color }) => (
+            <TabBarIcon focused={focused} icon='account' color={color} />
+          ),
+        }}
+      />
       <Tab.Screen
         name='Home'
         component={HomeNavigator}
