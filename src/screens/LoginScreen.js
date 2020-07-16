@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { Title, useTheme } from 'react-native-paper';
 import { useStatusBar } from '../hooks/useStatusBar';
 import SafeAreaContainer from '../components/SafeAreaContainer';
+import Logo from '../components/Logo';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import { login } from '../api/firebaseAuthAPI';
@@ -18,6 +19,7 @@ export default function LoginScreen({ navigation }) {
   return (
     <SafeAreaContainer>
       <View style={styles.container}>
+        <Logo />
         <Title style={styles.titleText}>Welcome to Chat App</Title>
         <FormInput
           labelName='Email'
