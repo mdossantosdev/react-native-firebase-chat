@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
+import { IconButton } from 'react-native-paper';
 import {
   Bubble,
   Send,
@@ -8,12 +9,12 @@ import {
   Composer,
   Actions,
 } from 'react-native-gifted-chat';
-import { IconButton } from 'react-native-paper';
+
 import {
   COLOR_PRIMARY,
   DARK_COLOR_PRIMARY,
   COLOR_WHITE_TEXT,
-} from '../constants/Colors';
+} from '../../constants/Colors';
 
 export const renderBubble = (props) => {
   return (
