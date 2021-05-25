@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, FlatList, TouchableOpacity } from 'react-native';
 import { List, Divider } from 'react-native-paper';
-import Loading from '../components/Loading';
+import { Loading } from '../components/Loading';
 import { firestore } from '../config/firebase';
 import { useStatusBar } from '../hooks/useStatusBar';
 

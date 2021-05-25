@@ -5,7 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 import { auth } from '../config/firebase';
 import AppNavigator from './AppNavigator';
 import AuthNavigator from './AuthNavigator';
-import Loading from '../components/Loading';
+import { Loading } from '../components/Loading';
 
 export default function RootNavigator({ theme }) {
   const { user, setUser } = useContext(AuthContext);

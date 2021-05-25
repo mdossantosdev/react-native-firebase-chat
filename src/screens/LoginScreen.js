@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { Title, useTheme } from 'react-native-paper';
 import { useStatusBar } from '../hooks/useStatusBar';
 import SafeAreaContainer from '../components/SafeAreaContainer';
-import Logo from '../components/Logo';
+import { Logo } from '../components/Logo';
 import { FormInput } from '../components/FormInput';
 import { FormButton } from '../components/FormButton';
 import { login } from '../api/firebaseAuthAPI';
