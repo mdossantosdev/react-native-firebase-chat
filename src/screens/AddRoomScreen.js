@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { IconButton, Title, useTheme } from 'react-native-paper';
-import SafeAreaContainer from '../components/SafeAreaContainer';
+import { SafeAreaContainer } from '../components/SafeAreaContainer';
 import { FormInput } from '../components/FormInput';
 import { FormButton } from '../components/FormButton';
 import { createRoom } from '../api/firestoreAPI';

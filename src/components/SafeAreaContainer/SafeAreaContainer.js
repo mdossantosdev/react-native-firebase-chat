@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function SafeAreaContainer({ children }) {
+export const SafeAreaContainer = ({ children }) => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <KeyboardAvoidingView
@@ -20,4 +20,4 @@ export default function SafeAreaContainer({ children }) {
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
-}
+};
