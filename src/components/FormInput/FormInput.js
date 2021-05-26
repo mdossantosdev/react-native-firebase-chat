@@ -1,6 +1,5 @@
 import React from 'react';
 import { TextInput } from 'react-native-paper';
-
 import { styles } from './styles';
 
 export const FormInput = ({ labelName, theme, ...props }) => {

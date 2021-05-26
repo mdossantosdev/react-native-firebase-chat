@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, FlatList, TouchableOpacity } from 'react-native';
 import { List, Divider } from 'react-native-paper';
-
 import { styles } from './styles';
 import { Loading } from '../../components/Loading';
 import { useStatusBar } from '../../hooks/useStatusBar';

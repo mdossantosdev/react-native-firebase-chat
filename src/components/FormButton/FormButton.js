@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from 'react-native-paper';
-
 import { styles } from './styles';
 
 export const FormButton = ({ title, modeValue, ...props }) => {

@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { Title, useTheme } from 'react-native-paper';
-import { useStatusBar } from '../hooks/useStatusBar';
-import { SafeAreaContainer } from '../components/SafeAreaContainer';
-import { Logo } from '../components/Logo';
-import { FormInput } from '../components/FormInput';
-import { FormButton } from '../components/FormButton';
-import { login } from '../api/firebaseAuthAPI';
-import { COLOR_WHITE_TEXT } from '../constants/Colors';
+import { styles } from './styles';
+import { SafeAreaContainer } from '../../components/SafeAreaContainer';
+import { Logo } from '../../components/Logo';
+import { FormInput } from '../../components/FormInput';
+import { FormButton } from '../../components/FormButton';
+import { useStatusBar } from '../../hooks/useStatusBar';
+import { login } from '../../api/firebaseAuthAPI';
 
-export default function LoginScreen({ navigation }) {
+export const Login = ({ navigation }) => {
   useStatusBar(useTheme().dark ? 'light-content' : 'dark-content');
 
   const theme = useTheme();
@@ -53,23 +53,4 @@ export default function LoginScreen({ navigation }) {
       </View>
     </SafeAreaContainer>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  titleText: {
-    fontSize: 22,
-    marginBottom: 10,
-  },
-  loginButtonLabel: {
-    fontSize: 20,
-    color: COLOR_WHITE_TEXT,
-  },
-  navButtonText: {
-    fontSize: 12,
-  },
-});
+};

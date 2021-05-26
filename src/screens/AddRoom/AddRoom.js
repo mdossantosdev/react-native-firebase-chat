@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { IconButton, Title, useTheme } from 'react-native-paper';
-
 import { styles } from './styles';
 import { SafeAreaContainer } from '../../components/SafeAreaContainer';
 import { FormInput } from '../../components/FormInput';
 import { FormButton } from '../../components/FormButton';
-import { createRoom } from '../../api/firestoreAPI';
 import { useStatusBar } from '../../hooks/useStatusBar';
+import { createRoom } from '../../api/firestoreAPI';
 
 export const AddRoom = ({ navigation }) => {
   useStatusBar(useTheme().dark ? 'light-content' : 'dark-content');

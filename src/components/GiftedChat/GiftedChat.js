@@ -9,7 +9,6 @@ import {
   Composer,
   Actions,
 } from 'react-native-gifted-chat';
-
 import {
   COLOR_PRIMARY,
   DARK_COLOR_PRIMARY,
