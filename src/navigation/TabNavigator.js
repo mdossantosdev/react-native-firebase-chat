@@ -4,6 +4,7 @@ import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { IconButton, useTheme } from 'react-native-paper';
 import HomeNavigator from './HomeNavigator';
+import { Routes } from './routes';
 import { Profile } from '../screens/Profile';
 import { Settings } from '../screens/Settings';
 import { COLOR_WHITE_TEXT } from '../constants/Colors';
@@ -26,7 +27,7 @@ function ProfileScreenStack() {
 
   return (
     <Stack.Navigator screenOptions={screenOptions}>
-      <Stack.Screen name='Profile' component={Profile} />
+      <Stack.Screen name={Routes.Profile} component={Profile} />
     </Stack.Navigator>
   );
 }
@@ -46,7 +47,7 @@ function SettingsScreenStack() {
 
   return (
     <Stack.Navigator screenOptions={screenOptions}>
-      <Stack.Screen name='Settings' component={Settings} />
+      <Stack.Screen name={Routes.Settings} component={Settings} />
     </Stack.Navigator>
   );
 }
@@ -70,7 +71,7 @@ export default function TabNavigator() {
 
   return (
     <Tab.Navigator
-      initialRouteName='Home'
+      initialRouteName={Routes.Rooms}
       tabBarOptions={{
         activeTintColor: colors.activeTintColor,
         inactiveTintColor: colors.inactiveTintColor,
@@ -78,7 +79,7 @@ export default function TabNavigator() {
       }}
     >
       <Tab.Screen
-        name='ProfileStack'
+        name={Routes.ProfileStack}
         component={ProfileScreenStack}
         options={{
           tabBarLabel: 'Profile',
@@ -88,7 +89,7 @@ export default function TabNavigator() {
         }}
       />
       <Tab.Screen
-        name='Home'
+        name={Routes.Rooms}
         component={HomeNavigator}
         options={({ route }) => ({
           tabBarLabel: 'Rooms',
@@ -103,7 +104,7 @@ export default function TabNavigator() {
         })}
       />
       <Tab.Screen
-        name='SettingsStack'
+        name={Routes.SettingsStack}
         component={SettingsScreenStack}
         options={{
           tabBarLabel: 'Settings',

@@ -7,6 +7,7 @@ import { FormInput } from '../../components/FormInput';
 import { FormButton } from '../../components/FormButton';
 import { useStatusBar } from '../../hooks/useStatusBar';
 import { createRoom } from '../../api/firestoreAPI';
+import { Routes } from '../../navigation/routes';
 
 export const AddRoom = ({ navigation }) => {
   useStatusBar(useTheme().dark ? 'light-content' : 'dark-content');
@@ -17,7 +18,7 @@ export const AddRoom = ({ navigation }) => {
   const handlePress = () => {
     if (roomName.length > 0) {
       createRoom(roomName);
-      navigation.navigate('Home');
+      navigation.navigate(Routes.Rooms);
     }
   };
 

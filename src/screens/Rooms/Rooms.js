@@ -5,6 +5,7 @@ import { styles } from './styles';
 import { Loading } from '../../components/Loading';
 import { useStatusBar } from '../../hooks/useStatusBar';
 import { firestore } from '../../config/firebase';
+import { Routes } from '../../navigation/routes';
 
 export const Rooms = ({ navigation }) => {
   useStatusBar('light-content');
@@ -40,7 +41,7 @@ export const Rooms = ({ navigation }) => {
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
-      onPress={() => navigation.navigate('Room', { room: item })}
+      onPress={() => navigation.navigate(Routes.Room, { room: item })}
     >
       <List.Item
         title={item.name}

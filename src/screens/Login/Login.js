@@ -8,6 +8,7 @@ import { FormInput } from '../../components/FormInput';
 import { FormButton } from '../../components/FormButton';
 import { useStatusBar } from '../../hooks/useStatusBar';
 import { login } from '../../api/firebaseAuthAPI';
+import { Routes } from '../../navigation/routes';
 
 export const Login = ({ navigation }) => {
   useStatusBar(useTheme().dark ? 'light-content' : 'dark-content');
@@ -48,7 +49,7 @@ export const Login = ({ navigation }) => {
           modeValue='text'
           uppercase={false}
           labelStyle={styles.navButtonText}
-          onPress={() => navigation.navigate('Register')}
+          onPress={() => navigation.navigate(Routes.Register)}
         />
       </View>
     </SafeAreaContainer>

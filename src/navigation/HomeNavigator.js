@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { IconButton, useTheme } from 'react-native-paper';
+import { Routes } from './routes';
 import { Rooms } from '../screens/Rooms';
 import { Room } from '../screens/Room';
 import { COLOR_WHITE_TEXT } from '../constants/Colors';
@@ -23,7 +24,7 @@ export default function HomeNavigator() {
       }}
     >
       <Stack.Screen
-        name='Home'
+        name={Routes.Rooms}
         component={Rooms}
         options={({ navigation }) => ({
           headerTitle: 'Rooms',
@@ -32,13 +33,13 @@ export default function HomeNavigator() {
               icon='message-plus'
               size={26}
               color={COLOR_WHITE_TEXT}
-              onPress={() => navigation.navigate('AddRoom')}
+              onPress={() => navigation.navigate(Routes.AddRoom)}
             />
           ),
         })}
       />
       <Stack.Screen
-        name='Room'
+        name={Routes.Room}
         component={Room}
         options={({ route }) => ({
           title: route.params.room.name,

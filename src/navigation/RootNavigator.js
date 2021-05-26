@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { AuthContext } from '../context/AuthContext';
-import { auth } from '../config/firebase';
 import AppNavigator from './AppNavigator';
 import AuthNavigator from './AuthNavigator';
+import { AuthContext } from '../context/AuthContext';
 import { Loading } from '../components/Loading';
+import { auth } from '../config/firebase';
 
 export default function RootNavigator({ theme }) {
   const { user, setUser } = useContext(AuthContext);
