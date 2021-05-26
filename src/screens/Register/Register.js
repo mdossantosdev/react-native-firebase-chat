@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { Title, IconButton, useTheme } from 'react-native-paper';
-import { useStatusBar } from '../hooks/useStatusBar';
-import { SafeAreaContainer } from '../components/SafeAreaContainer';
-import { Logo } from '../components/Logo';
-import { FormInput } from '../components/FormInput';
-import { FormButton } from '../components/FormButton';
-import { register } from '../api/firebaseAuthAPI';
-import { COLOR_WHITE_TEXT } from '../constants/Colors';
+import { styles } from './styles';
+import { SafeAreaContainer } from '../../components/SafeAreaContainer';
+import { Logo } from '../../components/Logo';
+import { FormInput } from '../../components/FormInput';
+import { FormButton } from '../../components/FormButton';
+import { useStatusBar } from '../../hooks/useStatusBar';
+import { register } from '../../api/firebaseAuthAPI';
 
-export default function RegisterScreen({ navigation }) {
+export const Register = ({ navigation }) => {
   useStatusBar(useTheme().dark ? 'light-content' : 'dark-content');
 
   const theme = useTheme();
@@ -53,23 +53,4 @@ export default function RegisterScreen({ navigation }) {
       </View>
     </SafeAreaContainer>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  titleText: {
-    fontSize: 22,
-    marginBottom: 10,
-  },
-  registerButtonLabel: {
-    fontSize: 20,
-    color: COLOR_WHITE_TEXT,
-  },
-  navButton: {
-    marginTop: 10,
-  },
-});
+};
