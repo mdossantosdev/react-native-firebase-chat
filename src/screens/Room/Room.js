@@ -11,20 +11,20 @@ import {
   renderComposer,
   renderSend,
   renderActions,
-} from '../components/GiftedChat';
-import { AuthContext } from '../context/AuthContext';
-import { sendMessage, sendLatestMessage } from '../api/firestoreAPI';
-import { firestore } from '../config/firebase';
-import { useStatusBar } from '../hooks/useStatusBar';
+} from '../../components/GiftedChat';
+import { AuthContext } from '../../context/AuthContext';
+import { useStatusBar } from '../../hooks/useStatusBar';
+import { sendMessage, sendLatestMessage } from '../../api/firestoreAPI';
+import { firestore } from '../../config/firebase';
 
-export default function RoomScreen({ route }) {
+export const Room = ({ route }) => {
   useStatusBar('light-content');
 
+  const { room } = route.params;
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
   const { user } = useContext(AuthContext);
   const [messages, setMessages] = useState([]);
-  const { room } = route.params;
 
   const currentUser = user.toJSON();
 
@@ -91,4 +91,4 @@ export default function RoomScreen({ route }) {
       }}
     />
   );
-}
+};

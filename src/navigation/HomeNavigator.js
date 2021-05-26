@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { IconButton, useTheme } from 'react-native-paper';
 import { Rooms } from '../screens/Rooms';
-import RoomScreen from '../screens/RoomScreen';
+import { Room } from '../screens/Room';
 import { COLOR_WHITE_TEXT } from '../constants/Colors';
 
 const Stack = createStackNavigator();
@@ -39,7 +39,7 @@ export default function HomeNavigator() {
       />
       <Stack.Screen
         name='Room'
-        component={RoomScreen}
+        component={Room}
         options={({ route }) => ({
           title: route.params.room.name,
           headerBackTitle: 'Back',
