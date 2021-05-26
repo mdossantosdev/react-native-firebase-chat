@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { IconButton, useTheme } from 'react-native-paper';
-import HomeScreen from '../screens/HomeScreen';
+import { Rooms } from '../screens/Rooms';
 import RoomScreen from '../screens/RoomScreen';
 import { COLOR_WHITE_TEXT } from '../constants/Colors';
 
@@ -24,7 +24,7 @@ export default function HomeNavigator() {
     >
       <Stack.Screen
         name='Home'
-        component={HomeScreen}
+        component={Rooms}
         options={({ navigation }) => ({
           headerTitle: 'Rooms',
           headerRight: () => (

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, FlatList, TouchableOpacity } from 'react-native';
+import { View, FlatList, TouchableOpacity } from 'react-native';
 import { List, Divider } from 'react-native-paper';
-import { Loading } from '../components/Loading';
-import { firestore } from '../config/firebase';
-import { useStatusBar } from '../hooks/useStatusBar';
 
-export default function HomeScreen({ navigation }) {
+import { styles } from './styles';
+import { Loading } from '../../components/Loading';
+import { useStatusBar } from '../../hooks/useStatusBar';
+import { firestore } from '../../config/firebase';
+
+export const Rooms = ({ navigation }) => {
   useStatusBar('light-content');
 
   const [rooms, setRooms] = useState([]);
@@ -35,9 +37,7 @@ export default function HomeScreen({ navigation }) {
     return () => unsubscribe();
   }, []);
 
-  if (isLoading) {
-    return <Loading />;
-  }
+  if (isLoading) return <Loading />;
 
   const renderItem = ({ item }) => (
     <TouchableOpacity
@@ -57,24 +57,12 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <FlatList
-        data={rooms}
-        renderItem={renderItem}
-        keyExtractor={(item) => item._id}
-        ItemSeparatorComponent={() => <Divider />}
         showsVerticalScrollIndicator={false}
+        data={rooms}
+        keyExtractor={(item) => item._id}
+        renderItem={renderItem}
+        ItemSeparatorComponent={() => <Divider />}
       />
     </View>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  listTitle: {
-    fontSize: 18,
-  },
-  listDescription: {
-    fontSize: 14,
-  },
-});
+};
