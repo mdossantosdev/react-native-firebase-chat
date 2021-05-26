@@ -4,7 +4,7 @@ import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { IconButton, useTheme } from 'react-native-paper';
 import HomeNavigator from './HomeNavigator';
-import ProfileScreen from '../screens/ProfileScreen';
+import { Profile } from '../screens/Profile';
 import SettingsScreen from '../screens/SettingsScreen';
 import { COLOR_WHITE_TEXT } from '../constants/Colors';
 
@@ -26,7 +26,7 @@ function ProfileScreenStack() {
 
   return (
     <Stack.Navigator screenOptions={screenOptions}>
-      <Stack.Screen name='Profile' component={ProfileScreen} />
+      <Stack.Screen name='Profile' component={Profile} />
     </Stack.Navigator>
   );
 }
