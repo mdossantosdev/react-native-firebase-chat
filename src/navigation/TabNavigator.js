@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { IconButton, useTheme } from 'react-native-paper';
 import HomeNavigator from './HomeNavigator';
 import { Profile } from '../screens/Profile';
-import SettingsScreen from '../screens/SettingsScreen';
+import { Settings } from '../screens/Settings';
 import { COLOR_WHITE_TEXT } from '../constants/Colors';
 
 const Tab = createBottomTabNavigator();
@@ -46,7 +46,7 @@ function SettingsScreenStack() {
 
   return (
     <Stack.Navigator screenOptions={screenOptions}>
-      <Stack.Screen name='Settings' component={SettingsScreen} />
+      <Stack.Screen name='Settings' component={Settings} />
     </Stack.Navigator>
   );
 }
