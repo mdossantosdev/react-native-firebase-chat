@@ -3,12 +3,12 @@ import { View } from 'react-native';
 import { Avatar, List, Text } from 'react-native-paper';
 import { styles } from './styles';
 import { AuthContext } from '../../context/AuthContext';
-import { calcDate } from '../../utils/date';
+import { formatDate } from '../../utils/date';
 
 export const Profile = () => {
   const { user } = useContext(AuthContext);
 
-  const joinedDate = calcDate(Number(user.metadata.a));
+  const joinedDate = formatDate(Number(user.metadata.a));
 
   return (
     <View style={styles.container}>

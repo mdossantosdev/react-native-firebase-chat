@@ -1,4 +1,4 @@
-export const calcDate = (date) => {
+export const formatDate = (date) => {
   const newDate = new Date(date);
   const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(
     newDate
