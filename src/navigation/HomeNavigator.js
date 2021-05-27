@@ -1,7 +1,8 @@
 import React from 'react';
-import { IconButton, useTheme } from 'react-native-paper';
+import { IconButton } from 'react-native-paper';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Routes } from './routes';
+import { screenOptions } from './options';
 import { Rooms } from '../screens/Rooms';
 import { Room } from '../screens/Room';
 import { COLOR_WHITE_TEXT } from '../constants/Colors';
@@ -9,23 +10,8 @@ import { COLOR_WHITE_TEXT } from '../constants/Colors';
 const Stack = createStackNavigator();
 
 export const HomeNavigator = () => {
-  const { colors } = useTheme();
-
-  const screenOptions = {
-    headerStyle: {
-      backgroundColor: colors.primary,
-    },
-    headerTintColor: COLOR_WHITE_TEXT,
-    headerTitleStyle: {
-      fontSize: 20,
-    },
-  };
-
   return (
-    <Stack.Navigator
-      initialRouteName={Routes.Rooms}
-      screenOptions={screenOptions}
-    >
+    <Stack.Navigator initialRouteName={Routes.Rooms} screenOptions={screenOptions}>
       <Stack.Screen
         name={Routes.Rooms}
         component={Rooms}
