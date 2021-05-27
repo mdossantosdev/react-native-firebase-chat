@@ -4,7 +4,7 @@ export const Routes = {
   HomeNavigator: 'HomeNavigator',
   Login: 'Login',
   Profile: 'Profile',
-  ProfileStack: 'ProfileStack',
+  ProfileNavigator: 'ProfileNavigator',
   Register: 'Register',
   Room: 'Room',
   Rooms: 'Rooms',
