@@ -1,5 +1,7 @@
 export const Routes = {
   AddRoom: 'AddRoom',
+  BottomTabNavigator: 'BottomTabNavigator',
+  HomeNavigator: 'HomeNavigator',
   Login: 'Login',
   Profile: 'Profile',
   ProfileStack: 'ProfileStack',
@@ -8,5 +10,4 @@ export const Routes = {
   Rooms: 'Rooms',
   Settings: 'Settings',
   SettingsStack: 'SettingsStack',
-  TabNavigator: 'TabNavigator',
 };

@@ -1,18 +1,18 @@
 import React from 'react';
+import { IconButton, useTheme } from 'react-native-paper';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { IconButton, useTheme } from 'react-native-paper';
 import HomeNavigator from './HomeNavigator';
 import { Routes } from './routes';
 import { Profile } from '../screens/Profile';
 import { Settings } from '../screens/Settings';
 import { COLOR_WHITE_TEXT } from '../constants/Colors';
 
-const Tab = createBottomTabNavigator();
+const BottomTab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-function ProfileScreenStack() {
+const ProfileScreenStack = () => {
   const { colors } = useTheme();
 
   const screenOptions = {
@@ -30,9 +30,9 @@ function ProfileScreenStack() {
       <Stack.Screen name={Routes.Profile} component={Profile} />
     </Stack.Navigator>
   );
-}
+};
 
-function SettingsScreenStack() {
+const SettingsScreenStack = () => {
   const { colors } = useTheme();
 
   const screenOptions = {
@@ -50,27 +50,24 @@ function SettingsScreenStack() {
       <Stack.Screen name={Routes.Settings} component={Settings} />
     </Stack.Navigator>
   );
-}
+};
 
-function TabBarIcon(props) {
+const TabBarIcon = (props) => {
   return <IconButton {...props} size={28} style={{ marginBottom: -3 }} />;
-}
+};
 
-export default function TabNavigator() {
+export const BottomTabNavigator = () => {
   const { colors } = useTheme();
 
   const getTabBarVisibility = (route) => {
     const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
 
-    if (routeName === 'Room') {
-      return false;
-    }
-
+    if (routeName === Routes.Room) return false;
     return true;
   };
 
   return (
-    <Tab.Navigator
+    <BottomTab.Navigator
       initialRouteName={Routes.Rooms}
       tabBarOptions={{
         activeTintColor: colors.activeTintColor,
@@ -78,7 +75,7 @@ export default function TabNavigator() {
         style: { backgroundColor: colors.backgroundTabBar },
       }}
     >
-      <Tab.Screen
+      <BottomTab.Screen
         name={Routes.ProfileStack}
         component={ProfileScreenStack}
         options={{
@@ -88,22 +85,18 @@ export default function TabNavigator() {
           ),
         }}
       />
-      <Tab.Screen
+      <BottomTab.Screen
         name={Routes.Rooms}
         component={HomeNavigator}
         options={({ route }) => ({
           tabBarLabel: 'Rooms',
           tabBarVisible: getTabBarVisibility(route),
           tabBarIcon: ({ focused, color }) => (
-            <TabBarIcon
-              focused={focused}
-              icon='message-outline'
-              color={color}
-            />
+            <TabBarIcon focused={focused} icon='message-outline' color={color} />
           ),
         })}
       />
-      <Tab.Screen
+      <BottomTab.Screen
         name={Routes.SettingsStack}
         component={SettingsScreenStack}
         options={{
@@ -113,6 +106,6 @@ export default function TabNavigator() {
           ),
         }}
       />
-    </Tab.Navigator>
+    </BottomTab.Navigator>
   );
-}
+};
