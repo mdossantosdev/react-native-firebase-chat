@@ -5,6 +5,7 @@ import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { ProfileNavigator } from './ProfileNavigator';
 import { HomeNavigator } from './HomeNavigator';
 import { SettingsNavigator } from './SettingsNavigator';
+import { tabBarOptions } from './options';
 import { Routes } from './routes';
 
 const BottomTab = createBottomTabNavigator();
@@ -13,24 +14,20 @@ const TabBarIcon = (props) => {
   return <IconButton {...props} size={28} style={{ marginBottom: -3 }} />;
 };
 
+const getTabBarVisibility = (route) => {
+  const routeName = getFocusedRouteNameFromRoute(route) ?? Routes.HomeNavigator;
+
+  if (routeName === Routes.Room) return false;
+  return true;
+};
+
 export const BottomTabNavigator = () => {
   const { colors } = useTheme();
-
-  const getTabBarVisibility = (route) => {
-    const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
-
-    if (routeName === Routes.Room) return false;
-    return true;
-  };
 
   return (
     <BottomTab.Navigator
       initialRouteName={Routes.HomeNavigator}
-      tabBarOptions={{
-        activeTintColor: colors.activeTintColor,
-        inactiveTintColor: colors.inactiveTintColor,
-        style: { backgroundColor: colors.backgroundTabBar },
-      }}
+      tabBarOptions={tabBarOptions(colors)}
     >
       <BottomTab.Screen
         name={Routes.ProfileNavigator}

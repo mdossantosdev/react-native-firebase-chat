@@ -1,9 +1,6 @@
-import { useTheme } from 'react-native-paper';
 import { COLOR_WHITE_TEXT } from '../constants/Colors';
 
-export const screenOptions = () => {
-  const { colors } = useTheme();
-
+export const screenOptions = (colors) => {
   return ({
     headerStyle: {
       backgroundColor: colors.primary,
@@ -12,5 +9,13 @@ export const screenOptions = () => {
     headerTitleStyle: {
       fontSize: 20,
     },
+  });
+};
+
+export const tabBarOptions = (colors) => {
+  return({
+    activeTintColor: colors.activeTintColor,
+    inactiveTintColor: colors.inactiveTintColor,
+    style: { backgroundColor: colors.backgroundTabBar },
   });
 };
