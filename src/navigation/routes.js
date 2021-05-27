@@ -9,5 +9,5 @@ export const Routes = {
   Room: 'Room',
   Rooms: 'Rooms',
   Settings: 'Settings',
-  SettingsStack: 'SettingsStack',
+  SettingsNavigator: 'SettingsNavigator',
 };

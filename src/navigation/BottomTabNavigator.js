@@ -2,35 +2,12 @@ import React from 'react';
 import { IconButton, useTheme } from 'react-native-paper';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { ProfileNavigator } from './ProfileNavigator';
 import { HomeNavigator } from './HomeNavigator';
+import { SettingsNavigator } from './SettingsNavigator';
 import { Routes } from './routes';
-import { Settings } from '../screens/Settings';
-import { COLOR_WHITE_TEXT } from '../constants/Colors';
 
 const BottomTab = createBottomTabNavigator();
-const Stack = createStackNavigator();
-
-const SettingsScreenStack = () => {
-  const { colors } = useTheme();
-
-  const screenOptions = {
-    headerStyle: {
-      backgroundColor: colors.primary,
-    },
-    headerTintColor: COLOR_WHITE_TEXT,
-    headerTitleStyle: {
-      fontSize: 20,
-    },
-  };
-
-  return (
-    <Stack.Navigator screenOptions={screenOptions}>
-      <Stack.Screen name={Routes.Settings} component={Settings} />
-    </Stack.Navigator>
-  );
-};
 
 const TabBarIcon = (props) => {
   return <IconButton {...props} size={28} style={{ marginBottom: -3 }} />;
@@ -77,8 +54,8 @@ export const BottomTabNavigator = () => {
         })}
       />
       <BottomTab.Screen
-        name={Routes.SettingsStack}
-        component={SettingsScreenStack}
+        name={Routes.SettingsNavigator}
+        component={SettingsNavigator}
         options={{
           tabBarLabel: 'Settings',
           tabBarIcon: ({ focused, color }) => (
