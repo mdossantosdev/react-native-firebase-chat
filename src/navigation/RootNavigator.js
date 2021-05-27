@@ -1,13 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import AppNavigator from './AppNavigator';
+import { NavigationContainer } from '@react-navigation/native';
+import { AppNavigator } from './AppNavigator';
 import { AuthNavigator } from './AuthNavigator';
 import { AuthContext } from '../context/AuthContext';
 import { Loading } from '../components/Loading';
 import { auth } from '../config/firebase';
 
-export default function RootNavigator({ theme }) {
+export const RootNavigator = ({ theme }) => {
   const { user, setUser } = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -24,9 +24,7 @@ export default function RootNavigator({ theme }) {
     return () => subscriber();
   }, []);
 
-  if (isLoading) {
-    return <Loading />;
-  }
+  if (isLoading) return <Loading />;
 
   return (
     <SafeAreaProvider>
@@ -35,4 +33,4 @@ export default function RootNavigator({ theme }) {
       </NavigationContainer>
     </SafeAreaProvider>
   );
-}
+};

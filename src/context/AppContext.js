@@ -1,11 +1,11 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import { Provider as PaperProvider } from 'react-native-paper';
-import RootNavigator from './RootNavigator';
-import { ThemeContext } from '../context/ThemeContext';
-import { AuthProvider } from '../context/AuthContext';
+import { ThemeContext } from './ThemeContext';
+import { AuthProvider } from './AuthContext';
+import { RootNavigator } from '../navigation/RootNavigator';
 import { CombinedDarkTheme, CombinedDefaultTheme } from '../theme';
 
-export default function Providers() {
+export const AppProviders = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   let theme = isDarkTheme ? CombinedDarkTheme : CombinedDefaultTheme;
@@ -31,4 +31,4 @@ export default function Providers() {
       </PaperProvider>
     </ThemeContext.Provider>
   );
-}
+};
