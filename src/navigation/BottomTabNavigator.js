@@ -3,7 +3,7 @@ import { IconButton, useTheme } from 'react-native-paper';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeNavigator from './HomeNavigator';
+import { HomeNavigator } from './HomeNavigator';
 import { Routes } from './routes';
 import { Profile } from '../screens/Profile';
 import { Settings } from '../screens/Settings';
@@ -86,7 +86,7 @@ export const BottomTabNavigator = () => {
         }}
       />
       <BottomTab.Screen
-        name={Routes.Rooms}
+        name={Routes.HomeNavigator}
         component={HomeNavigator}
         options={({ route }) => ({
           tabBarLabel: 'Rooms',

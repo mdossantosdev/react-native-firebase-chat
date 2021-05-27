@@ -1,6 +1,6 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
 import { IconButton, useTheme } from 'react-native-paper';
+import { createStackNavigator } from '@react-navigation/stack';
 import { Routes } from './routes';
 import { Rooms } from '../screens/Rooms';
 import { Room } from '../screens/Room';
@@ -8,20 +8,23 @@ import { COLOR_WHITE_TEXT } from '../constants/Colors';
 
 const Stack = createStackNavigator();
 
-export default function HomeNavigator() {
+export const HomeNavigator = () => {
   const { colors } = useTheme();
+
+  const screenOptions = {
+    headerStyle: {
+      backgroundColor: colors.primary,
+    },
+    headerTintColor: COLOR_WHITE_TEXT,
+    headerTitleStyle: {
+      fontSize: 20,
+    },
+  };
 
   return (
     <Stack.Navigator
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: colors.primary,
-        },
-        headerTintColor: COLOR_WHITE_TEXT,
-        headerTitleStyle: {
-          fontSize: 20,
-        },
-      }}
+      initialRouteName={Routes.Rooms}
+      screenOptions={screenOptions}
     >
       <Stack.Screen
         name={Routes.Rooms}
@@ -48,4 +51,4 @@ export default function HomeNavigator() {
       />
     </Stack.Navigator>
   );
-}
+};
