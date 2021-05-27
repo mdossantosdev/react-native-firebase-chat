@@ -6,11 +6,11 @@ import { Register } from '../screens/Register';
 
 const Stack = createStackNavigator();
 
-export default function AuthNavigator() {
+export const AuthNavigator = () => {
   return (
     <Stack.Navigator headerMode='none' initialRouteName={Routes.Login}>
       <Stack.Screen name={Routes.Login} component={Login} />
       <Stack.Screen name={Routes.Register} component={Register} />
     </Stack.Navigator>
   );
-}
+};
