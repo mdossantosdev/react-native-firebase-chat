@@ -44,36 +44,30 @@ export const renderBubble = (props) => {
   );
 };
 
-export const scrollToBottomComponent = (colors) => {
-  return (
-    <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-      <IconButton icon='chevron-down' size={34} color={colors.primary} />
-    </View>
-  );
-};
+export const scrollToBottomComponent = (colors) => (
+  <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+    <IconButton icon='chevron-down' size={34} color={colors.primary} />
+  </View>
+);
 
-export const renderLoading = (colors) => {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <ActivityIndicator size='large' color={colors.primary} />
-    </View>
-  );
-};
+export const renderLoading = (colors) => (
+  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <ActivityIndicator size='large' color={colors.primary} />
+  </View>
+);
 
-export const renderSystemMessage = ({ props, colors }) => {
-  return (
-    <SystemMessage
-      {...props}
-      wrapperStyle={{
-        backgroundColor: colors.primary,
-        opacity: 0.6,
-        borderRadius: 10,
-        padding: 4,
-      }}
-      textStyle={{ color: COLOR_WHITE_TEXT, fontSize: 12, fontWeight: '500' }}
-    />
-  );
-};
+export const renderSystemMessage = ({ props, colors }) => (
+  <SystemMessage
+    {...props}
+    wrapperStyle={{
+      backgroundColor: colors.primary,
+      opacity: 0.6,
+      borderRadius: 10,
+      padding: 4,
+    }}
+    textStyle={{ color: COLOR_WHITE_TEXT, fontSize: 12, fontWeight: '500' }}
+  />
+);
 
 export const renderInputToolbar = ({ props, colors }) => (
   <InputToolbar
@@ -101,22 +95,20 @@ export const renderComposer = ({ props, colors }) => (
   />
 );
 
-export const renderSend = (props) => {
-  return (
-    <Send
-      {...props}
-      disabled={!props.text}
-      containerStyle={{
-        width: 44,
-        height: 44,
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <IconButton icon='send' size={30} color={COLOR_PRIMARY} />
-    </Send>
-  );
-};
+export const renderSend = (props) => (
+  <Send
+    {...props}
+    disabled={!props.text}
+    containerStyle={{
+      width: 44,
+      height: 44,
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
+  >
+    <IconButton icon='send' size={30} color={COLOR_PRIMARY} />
+  </Send>
+);
 
 export const renderActions = ({ props, handleSendLocation }) => (
   <Actions

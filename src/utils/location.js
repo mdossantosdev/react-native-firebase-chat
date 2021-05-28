@@ -32,3 +32,15 @@ export const getCurrentLocation = async () => {
     console.log(error);
   }
 };
+
+export const formatCurrentLocation = async (location) => {
+  try {
+    const { latitude, longitude } = location;
+
+    const address = await Location.reverseGeocodeAsync({ latitude, longitude });
+
+    return `${address[0].name}, ${address[0].postalCode}, ${address[0].city}`;
+  } catch (error) {
+    console.log(error);
+  }
+};

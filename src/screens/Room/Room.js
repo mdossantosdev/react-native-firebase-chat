@@ -15,7 +15,11 @@ import {
 import { AuthContext } from '../../context/AuthContext';
 import { useStatusBar } from '../../hooks/useStatusBar';
 import { sendMessage, sendLatestMessage } from '../../api/firestoreAPI';
-import { getLocationPermission, getCurrentLocation } from '../../utils/location';
+import {
+  getLocationPermission,
+  getCurrentLocation,
+  formatCurrentLocation
+} from '../../utils/location';
 import { firestore } from '../../config/firebase';
 
 export const Room = ({ route }) => {
@@ -73,10 +77,11 @@ export const Room = ({ route }) => {
   const handleSendLocation = async () => {
     await getLocationPermission();
     const location = await getCurrentLocation();
-    const text = '';
+    const address = await formatCurrentLocation(location);
+    const text = address;
 
-    await sendMessage(room, currentUser, text, location);
-    await sendLatestMessage(room, text);
+    sendMessage(room, currentUser, text, location);
+    sendLatestMessage(room, text);
   };
 
   return (
