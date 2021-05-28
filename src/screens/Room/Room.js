@@ -15,6 +15,7 @@ import {
 import { AuthContext } from '../../context/AuthContext';
 import { useStatusBar } from '../../hooks/useStatusBar';
 import { sendMessage, sendLatestMessage } from '../../api/firestoreAPI';
+import { getLocationPermission, getCurrentLocation } from '../../utils/location';
 import { firestore } from '../../config/firebase';
 
 export const Room = ({ route }) => {
@@ -63,9 +64,19 @@ export const Room = ({ route }) => {
 
   const handleSend = (messages) => {
     const text = messages[0].text;
+    const location = null;
 
-    sendMessage(room, currentUser, text);
+    sendMessage(room, currentUser, text, location);
     sendLatestMessage(room, text);
+  };
+
+  const handleSendLocation = async () => {
+    await getLocationPermission();
+    const location = await getCurrentLocation();
+    const text = '';
+
+    await sendMessage(room, currentUser, text, location);
+    await sendLatestMessage(room, text);
   };
 
   return (
@@ -73,7 +84,7 @@ export const Room = ({ route }) => {
       messages={messages}
       onSend={handleSend}
       user={{ _id: currentUser.uid }}
-      placeholder='New Message'
+      placeholder='Message'
       alwaysShowSend
       scrollToBottom
       alignTop
@@ -84,7 +95,7 @@ export const Room = ({ route }) => {
       renderInputToolbar={(props) => renderInputToolbar({ props, colors })}
       renderSystemMessage={(props) => renderSystemMessage({ props, colors })}
       scrollToBottomComponent={() => scrollToBottomComponent(colors)}
-      renderActions={renderActions}
+      renderActions={(props) => renderActions({ props, handleSendLocation })}
       bottomOffset={insets.bottom}
       textInputProps={{
         keyboardAppearance: useTheme().dark ? 'dark' : 'light',

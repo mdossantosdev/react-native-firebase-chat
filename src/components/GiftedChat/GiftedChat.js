@@ -118,7 +118,7 @@ export const renderSend = (props) => {
   );
 };
 
-export const renderActions = (props) => (
+export const renderActions = ({ props, handleSendLocation }) => (
   <Actions
     {...props}
     containerStyle={{
@@ -132,7 +132,7 @@ export const renderActions = (props) => (
     icon={() => <IconButton icon='paperclip' size={30} color={COLOR_PRIMARY} />}
     options={{
       'Choose From Library': () => console.log('Choose From Library'),
-      'Send Current Location': () => console.log('Send Location'),
+      'Send Current Location': () => handleSendLocation(),
       Cancel: () => console.log('Cancel')
     }}
     optionTintColor={COLOR_PRIMARY}
