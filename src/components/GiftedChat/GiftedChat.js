@@ -9,6 +9,7 @@ import {
   Composer,
   Actions,
 } from 'react-native-gifted-chat';
+import { LocationView } from '../LocationView';
 import {
   COLOR_PRIMARY,
   DARK_COLOR_PRIMARY,
@@ -16,6 +17,10 @@ import {
 } from '../../constants/Colors';
 
 export const renderBubble = (props) => {
+  const { currentMessage } = props;
+
+  if (currentMessage.location) return <LocationView location={currentMessage.location} />;
+
   return (
     <Bubble
       {...props}
@@ -126,15 +131,9 @@ export const renderActions = (props) => (
     }}
     icon={() => <IconButton icon='paperclip' size={30} color={COLOR_PRIMARY} />}
     options={{
-      'Choose From Library': () => {
-        console.log('Choose From Library');
-      },
-      'Send Location': () => {
-        console.log('Send Location');
-      },
-      Cancel: () => {
-        console.log('Cancel');
-      },
+      'Choose From Library': () => console.log('Choose From Library'),
+      'Send Current Location': () => console.log('Send Location'),
+      Cancel: () => console.log('Cancel')
     }}
     optionTintColor={COLOR_PRIMARY}
   />

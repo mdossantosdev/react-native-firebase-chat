@@ -20,7 +20,7 @@ export const createRoom = async (roomName) => {
   }
 };
 
-export const sendMessage = async (room, user, text) => {
+export const sendMessage = async (room, user, text, location) => {
   try {
     await firestore
       .collection('ROOMS')
@@ -28,6 +28,7 @@ export const sendMessage = async (room, user, text) => {
       .collection('MESSAGES')
       .add({
         text,
+        location,
         createdAt: new Date().getTime(),
         user: {
           _id: user.uid,
