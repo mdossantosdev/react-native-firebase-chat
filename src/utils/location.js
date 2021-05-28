@@ -20,3 +20,15 @@ export const getLocationPermission = async () => {
     console.log(error);
   }
 };
+
+export const getCurrentLocation = async () => {
+  try {
+    const { coords } = await Location.getCurrentPositionAsync({
+      accuracy: Location.Accuracy.Balanced
+    });
+
+    return coords;
+  } catch (error) {
+    console.log(error);
+  }
+};
