@@ -5,6 +5,7 @@ import { styles } from './styles';
 import { SafeAreaContainer } from '../../components/SafeAreaContainer';
 import { Logo } from '../../components/Logo';
 import { FormInput } from '../../components/FormInput';
+import { SecureFormInput } from '../../components/SecureFormInput';
 import { FormButton } from '../../components/FormButton';
 import { useStatusBar } from '../../hooks/useStatusBar';
 import { register } from '../../api/firebaseAuthAPI';
@@ -29,10 +30,9 @@ export const Register = ({ navigation }) => {
           onChangeText={(userEmail) => setEmail(userEmail)}
           theme={theme}
         />
-        <FormInput
+        <SecureFormInput
           labelName='Password'
           value={password}
-          secureTextEntry
           onChangeText={(userPassword) => setPassword(userPassword)}
           theme={theme}
         />
