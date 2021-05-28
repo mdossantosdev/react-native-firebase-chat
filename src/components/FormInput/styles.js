@@ -5,10 +5,9 @@ const { width, height } = Dimensions.get('screen');
 export const styles = (colors) => (
   StyleSheet.create({
     input: {
-      marginTop: 10,
-      marginBottom: 10,
-      width: width / 1.5,
+      width: width / 1.2,
       height: height / 15,
+      marginVertical: 10,
       backgroundColor: colors.inputBackground,
     },
   })

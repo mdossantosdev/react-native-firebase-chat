@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 22,
-    marginBottom: 10,
+    marginBottom: 20,
   },
   registerButtonLabel: {
     fontSize: 20,
