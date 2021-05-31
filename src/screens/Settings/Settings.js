@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { View, Alert } from 'react-native';
+import { TouchableOpacity} from 'react-native-gesture-handler';
 import { List, Switch, Divider, Button } from 'react-native-paper';
 import { styles } from './styles';
 import { ThemeContext } from '../../context/ThemeContext';
@@ -35,10 +36,16 @@ export const Settings = () => {
         <List.Item
           title='Dark Theme'
           left={(props) => <List.Icon {...props} icon='brightness-4' />}
-          right={() => (
-            <Switch value={isDarkTheme} onValueChange={toggleTheme} />
-          )}
+          right={() => <Switch value={isDarkTheme} onValueChange={toggleTheme} />}
         />
+        <Divider />
+        <TouchableOpacity onPress={() => {}}>
+          <List.Item
+            title='Language'
+            left={(props) => <List.Icon {...props} icon='web' />}
+            right={(props) => <List.Icon {...props} icon='chevron-right' />}
+          />
+        </TouchableOpacity>
         <Divider />
       </View>
       <Button
