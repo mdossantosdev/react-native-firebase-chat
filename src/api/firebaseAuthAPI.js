@@ -3,23 +3,23 @@ import { auth } from '../config/firebase';
 export const register = async (email, password) => {
   try {
     await auth.createUserWithEmailAndPassword(email, password);
-  } catch (err) {
-    console.log(err.message);
+  } catch (error) {
+    throw new Error(error.message);
   }
 };
 
 export const login = async (email, password) => {
   try {
     await auth.signInWithEmailAndPassword(email, password);
-  } catch (err) {
-    throw new Error('Incorrect email or password');
+  } catch (error) {
+    throw new Error(error.message);
   }
 };
 
 export const logout = async () => {
   try {
     await auth.signOut();
-  } catch (err) {
-    console.log(err.message);
+  } catch (error) {
+    console.error(error.message);
   }
 };

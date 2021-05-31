@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { Title, IconButton, useTheme } from 'react-native-paper';
+import { Title, IconButton, HelperText, useTheme } from 'react-native-paper';
 import { styles } from './styles';
 import { SafeAreaContainer } from '../../components/SafeAreaContainer';
 import { Logo } from '../../components/Logo';
@@ -16,6 +16,15 @@ export const Register = ({ navigation }) => {
   const theme = useTheme();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+
+  const handleRegister = async (email, password) => {
+    try {
+      await register(email, password);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
 
   return (
     <SafeAreaContainer>
@@ -36,11 +45,14 @@ export const Register = ({ navigation }) => {
           onChangeText={(userPassword) => setPassword(userPassword)}
           theme={theme}
         />
+        {error &&
+          <HelperText type='error' visible={error}>{error}</HelperText>
+        }
         <FormButton
           title='Register'
           modeValue='contained'
           labelStyle={styles.registerButtonLabel}
-          onPress={() => register(email, password)}
+          onPress={() => handleRegister(email, password)}
           disabled={email.length === 0}
         />
         <IconButton
