@@ -8,9 +8,7 @@ export const LocationView = ({ location }) => {
   const LONGITUDE_DELTA = 0.02;
 
   return (
-    <TouchableOpacity
-      style={styles.container}
-    >
+    <TouchableOpacity style={styles.container}>
       <MapView
         style={styles.mapView}
         region={{

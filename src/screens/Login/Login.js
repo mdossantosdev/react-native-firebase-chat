@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
-import { Title, useTheme } from 'react-native-paper';
+import { Title, HelperText, useTheme } from 'react-native-paper';
 import { styles } from './styles';
 import { SafeAreaContainer } from '../../components/SafeAreaContainer';
 import { Logo } from '../../components/Logo';
@@ -17,6 +17,15 @@ export const Login = ({ navigation }) => {
   const theme = useTheme();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+
+  const handleLogin = async (email, password) => {
+    try {
+      await login(email, password);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
 
   return (
     <SafeAreaContainer>
@@ -37,11 +46,14 @@ export const Login = ({ navigation }) => {
           onChangeText={(userPassword) => setPassword(userPassword)}
           theme={theme}
         />
+        {error &&
+          <HelperText type='error' visible={error}>{error}</HelperText>
+        }
         <FormButton
           title='Login'
           modeValue='contained'
           labelStyle={styles.loginButtonLabel}
-          onPress={() => login(email, password)}
+          onPress={() => handleLogin(email, password)}
           disabled={email.length === 0}
         />
         <FormButton

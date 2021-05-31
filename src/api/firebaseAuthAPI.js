@@ -12,7 +12,7 @@ export const login = async (email, password) => {
   try {
     await auth.signInWithEmailAndPassword(email, password);
   } catch (err) {
-    console.log(err.message);
+    throw new Error('Incorrect email or password');
   }
 };
 
