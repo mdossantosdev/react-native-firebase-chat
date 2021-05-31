@@ -2,6 +2,7 @@ export const Routes = {
   AddRoom: 'AddRoom',
   BottomTabNavigator: 'BottomTabNavigator',
   HomeNavigator: 'HomeNavigator',
+  Language: 'Language',
   Login: 'Login',
   Profile: 'Profile',
   ProfileNavigator: 'ProfileNavigator',

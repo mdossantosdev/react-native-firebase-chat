@@ -6,8 +6,9 @@ import { styles } from './styles';
 import { ThemeContext } from '../../context/ThemeContext';
 import { logout } from '../../api/firebaseAuthAPI';
 import { COLOR_RED_TEXT } from '../../constants/Colors';
+import { Routes } from '../../navigation/routes';
 
-export const Settings = () => {
+export const Settings = ({ navigation }) => {
   const { toggleTheme, isDarkTheme } = useContext(ThemeContext);
 
   const handleLogout = () => {
@@ -39,7 +40,7 @@ export const Settings = () => {
           right={() => <Switch value={isDarkTheme} onValueChange={toggleTheme} />}
         />
         <Divider />
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={() => navigation.navigate(Routes.Language)}>
           <List.Item
             title='Language'
             left={(props) => <List.Icon {...props} icon='web' />}

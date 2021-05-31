@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Routes } from './routes';
 import { screenOptions } from './options';
 import { Settings } from '../screens/Settings';
+import { Language } from '../screens/Language';
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,7 @@ export const SettingsNavigator = () => {
       screenOptions={screenOptions(colors)}
     >
       <Stack.Screen name={Routes.Settings} component={Settings} />
+      <Stack.Screen name={Routes.Language} component={Language} />
     </Stack.Navigator>
   );
 };
