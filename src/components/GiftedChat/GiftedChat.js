@@ -41,6 +41,14 @@ export const renderBubble = (props) => {
           color: COLOR_WHITE_TEXT,
         },
       }}
+      timeTextStyle={{
+        left: {
+          color: COLOR_WHITE_TEXT,
+        },
+        right: {
+          color: COLOR_WHITE_TEXT,
+        },
+      }}
     />
   );
 };
