@@ -12,7 +12,8 @@ import {
 import { LocationView } from '../LocationView';
 import {
   COLOR_PRIMARY,
-  DARK_COLOR_PRIMARY,
+  COLOR_BUBBLE_LEFT,
+  COLOR_BUBBLE_RIGHT,
   COLOR_WHITE_TEXT,
 } from '../../constants/Colors';
 
@@ -26,10 +27,10 @@ export const renderBubble = (props) => {
       {...props}
       wrapperStyle={{
         left: {
-          backgroundColor: DARK_COLOR_PRIMARY,
+          backgroundColor: COLOR_BUBBLE_LEFT,
         },
         right: {
-          backgroundColor: COLOR_PRIMARY,
+          backgroundColor: COLOR_BUBBLE_RIGHT,
         },
       }}
       textStyle={{
