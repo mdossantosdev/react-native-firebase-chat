@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { View, FlatList } from 'react-native';
 import { TouchableOpacity} from 'react-native-gesture-handler';
 import { List, Divider } from 'react-native-paper';
+import { LanguageContext } from '../../context/LanguageContext';
 import { styles } from './styles';
 
 const languages = [
@@ -11,11 +12,7 @@ const languages = [
 ];
 
 export const Language = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState(null);
-
-  const handleSelectLanguage = (language) => {
-    setSelectedLanguage(language);
-  };
+  const { selectedLanguage, handleSelectLanguage } = useContext(LanguageContext);
 
   const renderItem = ({ item }) => {
     return (
