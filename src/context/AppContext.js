@@ -26,12 +26,12 @@ export const AppProviders = () => {
   return (
     <LanguageProvider>
       <ThemeContext.Provider value={preferences}>
-      <PaperProvider theme={theme}>
-        <AuthProvider>
-          <RootNavigator theme={theme} />
-        </AuthProvider>
-      </PaperProvider>
-    </ThemeContext.Provider>
+        <PaperProvider theme={theme}>
+          <AuthProvider>
+            <RootNavigator theme={theme} />
+          </AuthProvider>
+        </PaperProvider>
+      </ThemeContext.Provider>
     </LanguageProvider>
   );
 };
