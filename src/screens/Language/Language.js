@@ -4,11 +4,12 @@ import { TouchableOpacity} from 'react-native-gesture-handler';
 import { List, Divider } from 'react-native-paper';
 import { LanguageContext } from '../../context/LanguageContext';
 import { styles } from './styles';
+import { COLOR_PRIMARY } from '../../constants/Colors';
 
 const languages = [
-  { name: 'English' },
-  { name: 'French' },
-  { name: 'Spanish' },
+  { code: 'en', label: 'English' },
+  { code: 'fr', label: 'French' },
+  { code: 'es', label: 'Spanish' },
 ];
 
 export const Language = () => {
@@ -17,10 +18,14 @@ export const Language = () => {
   const renderItem = ({ item }) => {
     return (
       <View>
-        <TouchableOpacity onPress={() => handleSelectLanguage(item.name)}>
+        <TouchableOpacity onPress={() => handleSelectLanguage(item.code)}>
           <List.Item
-            title={item.name}
-            right={(props) => selectedLanguage === item.name ? <List.Icon {...props} icon='check' /> : null}
+            title={item.label}
+            right={(props) =>
+              selectedLanguage === item.code ? (
+                <List.Icon {...props} icon='check' color={COLOR_PRIMARY} />
+              ): null}
+            titleStyle={selectedLanguage === item.code ? styles.selectedText : styles.text}
           />
         </TouchableOpacity>
         <Divider />

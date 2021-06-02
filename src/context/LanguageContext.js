@@ -19,8 +19,8 @@ export const LanguageProvider = ({ children }) => {
 
   return (
     <LanguageContext.Provider value={{ selectedLanguage, handleSelectLanguage }}>
-        <I18nextProvider i18n={i18next}>
-          {children}
+      <I18nextProvider i18n={i18next}>
+        {children}
       </I18nextProvider>
     </LanguageContext.Provider>
   );
