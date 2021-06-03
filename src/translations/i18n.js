@@ -1,10 +1,11 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import * as Localization from 'expo-localization';
-import { en } from '../locales';
+import { en, fr } from '../locales';
 
 const resources = {
   en: { translation: en },
+  fr: { translation: fr },
 };
 
 const languageDetector = {
