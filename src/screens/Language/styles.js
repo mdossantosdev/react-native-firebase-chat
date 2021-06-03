@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
   },
   selectedText: {
     fontSize: 18,
-    fontWeight: '800',
+    fontWeight: '700',
     color: COLOR_PRIMARY,
   },
 });

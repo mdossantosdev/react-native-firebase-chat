@@ -16,7 +16,11 @@
     "inputLabel": "Room Name",
     "buttonLabel": "Create"
   },
-  "languageScreen": {},
+  "languageScreen": {
+    "english": "English",
+    "french": "French",
+    "spanish": "Spanish"
+  },
   "loginScreen": {},
   "profileScreen": {},
   "registerScreen": {},
