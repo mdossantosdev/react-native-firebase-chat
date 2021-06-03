@@ -2,6 +2,7 @@ import React from 'react';
 import { IconButton, useTheme } from 'react-native-paper';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 import { ProfileNavigator } from './ProfileNavigator';
 import { HomeNavigator } from './HomeNavigator';
 import { SettingsNavigator } from './SettingsNavigator';
@@ -23,6 +24,7 @@ const getTabBarVisibility = (route) => {
 
 export const BottomTabNavigator = () => {
   const { colors } = useTheme();
+  const { t } = useTranslation();
 
   return (
     <BottomTab.Navigator
@@ -33,7 +35,7 @@ export const BottomTabNavigator = () => {
         name={Routes.ProfileNavigator}
         component={ProfileNavigator}
         options={{
-          tabBarLabel: 'Profile',
+          tabBarLabel: t('tabBar.profile'),
           tabBarIcon: ({ focused, color }) => (
             <TabBarIcon focused={focused} icon='account' color={color} />
           ),
@@ -43,7 +45,7 @@ export const BottomTabNavigator = () => {
         name={Routes.HomeNavigator}
         component={HomeNavigator}
         options={({ route }) => ({
-          tabBarLabel: 'Rooms',
+          tabBarLabel: t('tabBar.rooms'),
           tabBarVisible: getTabBarVisibility(route),
           tabBarIcon: ({ focused, color }) => (
             <TabBarIcon focused={focused} icon='message-outline' color={color} />
@@ -54,7 +56,7 @@ export const BottomTabNavigator = () => {
         name={Routes.SettingsNavigator}
         component={SettingsNavigator}
         options={{
-          tabBarLabel: 'Settings',
+          tabBarLabel: t('tabBar.settings'),
           tabBarIcon: ({ focused, color }) => (
             <TabBarIcon focused={focused} icon='tune' color={color} />
           ),

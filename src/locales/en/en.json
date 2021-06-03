@@ -1,0 +1,13 @@
+{
+  "screen": {
+    "profile": "Profile",
+    "rooms": "Rooms",
+    "settings": "Settings",
+    "language": "Language"
+  },
+  "tabBar": {
+    "profile": "Profile",
+    "rooms": "Rooms",
+    "settings": "Settings"
+  }
+}

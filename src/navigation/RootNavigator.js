@@ -29,7 +29,7 @@ export const RootNavigator = ({ theme }) => {
   return (
     <SafeAreaProvider>
       <NavigationContainer theme={theme}>
-        {user ? <AppNavigator /> : <AuthNavigator />}
+        { user ? <AppNavigator /> : <AuthNavigator /> }
       </NavigationContainer>
     </SafeAreaProvider>
   );
