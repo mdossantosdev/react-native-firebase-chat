@@ -28,7 +28,10 @@
     "buttonLabel": "Login",
     "newUser": "New user? Join here"
   },
-  "profileScreen": {},
+  "profileScreen": {
+    "emailLabel": "Email",
+    "joined": "Joined Chat App on"
+  },
   "registerScreen": {},
   "roomScreen": {},
   "roomsScreen": {},
