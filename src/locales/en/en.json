@@ -21,7 +21,13 @@
     "french": "French",
     "spanish": "Spanish"
   },
-  "loginScreen": {},
+  "loginScreen": {
+    "welcome": "Welcome to Chat App",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "buttonLabel": "Login",
+    "newUser": "New user? Join here"
+  },
   "profileScreen": {},
   "registerScreen": {},
   "roomScreen": {},

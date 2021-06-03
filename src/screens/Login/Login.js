@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Title, HelperText, useTheme } from 'react-native-paper';
+import { useTranslation } from 'react-i18next';
 import { styles } from './styles';
 import { SafeAreaContainer } from '../../components/SafeAreaContainer';
 import { Logo } from '../../components/Logo';
@@ -15,6 +16,7 @@ export const Login = ({ navigation }) => {
   useStatusBar(useTheme().dark ? 'light-content' : 'dark-content');
 
   const theme = useTheme();
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -31,9 +33,9 @@ export const Login = ({ navigation }) => {
     <SafeAreaContainer>
       <View style={styles.container}>
         <Logo />
-        <Title style={styles.titleText}>Welcome to Chat App</Title>
+        <Title style={styles.titleText}>{t('loginScreen.welcome')}</Title>
         <FormInput
-          labelName='Email'
+          labelName={t('loginScreen.emailLabel')}
           value={email}
           autoCapitalize='none'
           keyboardType='email-address'
@@ -41,7 +43,7 @@ export const Login = ({ navigation }) => {
           theme={theme}
         />
         <SecureFormInput
-          labelName='Password'
+          labelName={t('loginScreen.passwordLabel')}
           value={password}
           onChangeText={(userPassword) => setPassword(userPassword)}
           theme={theme}
@@ -50,14 +52,14 @@ export const Login = ({ navigation }) => {
           <HelperText type='error' visible={error}>{error}</HelperText>
         }
         <FormButton
-          title='Login'
+          title={t('loginScreen.buttonLabel')}
           modeValue='contained'
           labelStyle={styles.loginButtonLabel}
           onPress={() => handleLogin(email, password)}
           disabled={email.length === 0}
         />
         <FormButton
-          title='New user? Join here'
+          title={t('loginScreen.newUser')}
           modeValue='text'
           uppercase={false}
           labelStyle={styles.navButtonText}
