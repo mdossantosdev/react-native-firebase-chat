@@ -3,11 +3,24 @@
     "profile": "Profile",
     "rooms": "Rooms",
     "settings": "Settings",
-    "language": "Language"
+    "language": "Language",
+    "back": "Back"
   },
   "tabBar": {
     "profile": "Profile",
     "rooms": "Rooms",
     "settings": "Settings"
-  }
+  },
+  "addRoomScreen": {
+    "title": "Create a new chat room",
+    "inputLabel": "Room Name",
+    "buttonLabel": "Create"
+  },
+  "languageScreen": {},
+  "loginScreen": {},
+  "profileScreen": {},
+  "registerScreen": {},
+  "roomScreen": {},
+  "roomsScreen": {},
+  "settingsScreen": {}
 }

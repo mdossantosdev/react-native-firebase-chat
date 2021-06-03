@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { IconButton, Title, useTheme } from 'react-native-paper';
+import { useTranslation } from 'react-i18next';
 import { styles } from './styles';
 import { SafeAreaContainer } from '../../components/SafeAreaContainer';
 import { FormInput } from '../../components/FormInput';
@@ -13,6 +14,7 @@ export const AddRoom = ({ navigation }) => {
   useStatusBar(useTheme().dark ? 'light-content' : 'dark-content');
 
   const theme = useTheme();
+  const { t } = useTranslation();
   const [roomName, setRoomName] = useState('');
 
   const handlePress = () => {
@@ -34,16 +36,16 @@ export const AddRoom = ({ navigation }) => {
           />
         </View>
         <View style={styles.innerContainer}>
-          <Title>Create a new chat room</Title>
+          <Title>{t('addRoomScreen.title')}</Title>
           <FormInput
-            labelName='Room Name'
+            labelName={t('addRoomScreen.inputLabel')}
             value={roomName}
             onChangeText={(text) => setRoomName(text)}
             clearButtonMode='while-editing'
             theme={theme}
           />
           <FormButton
-            title='Create'
+            title={t('addRoomScreen.buttonLabel')}
             modeValue='contained'
             labelStyle={styles.buttonLabel}
             onPress={handlePress}

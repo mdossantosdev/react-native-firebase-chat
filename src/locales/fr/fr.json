@@ -3,7 +3,8 @@
     "profile": "Profil",
     "rooms": "Salles",
     "settings": "Paramètres",
-    "language": "Langue"
+    "language": "Langue",
+    "back": "Retour"
   },
   "tabBar": {
     "profile": "Profil",
