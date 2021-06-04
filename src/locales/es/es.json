@@ -1,0 +1,53 @@
+{
+  "screen": {
+    "profile": "Perfil",
+    "rooms": "Salas",
+    "settings": "Ajustes",
+    "language": "Idioma",
+    "back": "Atrás"
+  },
+  "tabBar": {
+    "profile": "Perfil",
+    "rooms": "Salas",
+    "settings": "Ajustes"
+  },
+  "addRoomScreen": {
+    "title": "Crear una nueva sala",
+    "inputLabel": "Nombre de la sala",
+    "buttonLabel": "Crear"
+  },
+  "languageScreen": {
+    "english": "Inglés",
+    "french": "Francés",
+    "spanish": "Español"
+  },
+  "loginScreen": {
+    "welcome": "Bienvenido a Chat App",
+    "emailLabel": "Email",
+    "passwordLabel": "Contraseña",
+    "buttonLabel": "Iniciar sesión",
+    "newUser": "¿Eres nuevo? Únete aquí"
+  },
+  "profileScreen": {
+    "emailLabel": "Email",
+    "joined": "Se unió a Chat App en"
+  },
+  "registerScreen": {
+    "registerTitle": "Regístrese Chat App",
+    "emailLabel": "Email",
+    "passwordLabel": "Contraseña",
+    "buttonLabel": "Regístrese"
+  },
+  "roomScreen": {
+    "systemMessage": "Te has unido a la sala"
+  },
+  "roomsScreen": {},
+  "settingsScreen": {
+    "titleModal": "Ajustes",
+    "subtitleModal": "¿Seguro que quieres cerrar la sesión?",
+    "cancel": "Cancelar",
+    "logout": "Cerrar sesión",
+    "darkTheme": "Modo nocturno",
+    "languageLink": "Idioma"
+  }
+}
