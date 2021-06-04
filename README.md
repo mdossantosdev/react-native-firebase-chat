@@ -9,6 +9,7 @@
 - React Native Paper
 - React Navigation
 - React Native Gifted Chat
+- i18next
 - Firebase / Firestore
 
 ## ✨ Features
@@ -17,6 +18,7 @@
 - [x] Realtime Chat
 - [x] Create Chat Room
 - [x] Light/Dark theme
+- [x] Internationalization
 - [x] Logout
 - [x] Bottom Tab Navigation
 - [x] Firebase as a Backend
@@ -41,19 +43,17 @@ $ cd react-native-firebase-chat
 $ npm install
 ```
 
-4. Rename the config/firebaseConfig_sample file to firebaseConfig.js and fill it
+4. Rename the .env_sample file to .env and fill it
 
-```js
-export const firebaseConfig = {
-  apiKey: 'your_api_key',
-  authDomain: 'your_auth_domain',
-  databaseURL: 'your_database_url',
-  projectId: 'your_project_id',
-  storageBucket: 'your_storage_bucket',
-  messagingSenderId: 'your_messaging_sender_id',
-  appId: 'your_app_id',
-  measurementId: 'your_measurement_id',
-};
+```
+API_KEY=your_api_key
+AUTH_DOMAIN=your_auth_domain
+DATABASE_URL=your_database_url
+PROJECT_ID=your_project_id
+STORAGE_BUCKET=your_storage_bucket
+MESSAGING_SENDER_ID=your_messaging_sender_id
+APP_ID=your_app_id
+MEASUREMENT_ID=your_measurement_id
 ```
 
 5. Start the project
