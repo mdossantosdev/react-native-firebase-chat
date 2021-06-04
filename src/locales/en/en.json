@@ -32,7 +32,12 @@
     "emailLabel": "Email",
     "joined": "Joined Chat App on"
   },
-  "registerScreen": {},
+  "registerScreen": {
+    "registerTitle": "Register to Chat App",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "buttonLabel": "Register"
+  },
   "roomScreen": {},
   "roomsScreen": {},
   "settingsScreen": {}

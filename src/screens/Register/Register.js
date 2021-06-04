@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { Title, IconButton, HelperText, useTheme } from 'react-native-paper';
+import { useTranslation } from 'react-i18next';
 import { styles } from './styles';
 import { SafeAreaContainer } from '../../components/SafeAreaContainer';
 import { Logo } from '../../components/Logo';
@@ -14,6 +15,7 @@ export const Register = ({ navigation }) => {
   useStatusBar(useTheme().dark ? 'light-content' : 'dark-content');
 
   const theme = useTheme();
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -30,9 +32,9 @@ export const Register = ({ navigation }) => {
     <SafeAreaContainer>
       <View style={styles.container}>
         <Logo />
-        <Title style={styles.titleText}>Register to Chat App</Title>
+        <Title style={styles.titleText}>{t('registerScreen.registerTitle')}</Title>
         <FormInput
-          labelName='Email'
+          labelName={t('registerScreen.emailLabel')}
           value={email}
           autoCapitalize='none'
           keyboardType='email-address'
@@ -40,7 +42,7 @@ export const Register = ({ navigation }) => {
           theme={theme}
         />
         <SecureFormInput
-          labelName='Password'
+          labelName={t('registerScreen.passwordLabel')}
           value={password}
           onChangeText={(userPassword) => setPassword(userPassword)}
           theme={theme}
@@ -49,7 +51,7 @@ export const Register = ({ navigation }) => {
           <HelperText type='error' visible={error}>{error}</HelperText>
         }
         <FormButton
-          title='Register'
+          title={t('registerScreen.buttonLabel')}
           modeValue='contained'
           labelStyle={styles.registerButtonLabel}
           onPress={() => handleRegister(email, password)}
