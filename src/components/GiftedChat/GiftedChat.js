@@ -65,18 +65,24 @@ export const renderLoading = (colors) => (
   </View>
 );
 
-export const renderSystemMessage = ({ props, colors }) => (
-  <SystemMessage
-    {...props}
-    wrapperStyle={{
-      backgroundColor: colors.primary,
-      opacity: 0.6,
-      borderRadius: 10,
-      padding: 4,
-    }}
-    textStyle={{ color: COLOR_WHITE_TEXT, fontSize: 12, fontWeight: '500' }}
-  />
-);
+export const renderSystemMessage = ({ props, colors, t }) => {
+  const roomName = props.currentMessage.text;
+  const text = `${t('roomScreen.systemMessage')} ${roomName}`;
+
+  return (
+    <SystemMessage
+      {...props}
+      currentMessage={{ text }}
+      wrapperStyle={{
+        backgroundColor: colors.primary,
+        opacity: 0.6,
+        borderRadius: 10,
+        padding: 4,
+      }}
+      textStyle={{ color: COLOR_WHITE_TEXT, fontSize: 12, fontWeight: '500' }}
+    />
+  )
+};
 
 export const renderInputToolbar = ({ props, colors }) => (
   <InputToolbar

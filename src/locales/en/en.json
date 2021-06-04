@@ -38,7 +38,9 @@
     "passwordLabel": "Password",
     "buttonLabel": "Register"
   },
-  "roomScreen": {},
+  "roomScreen": {
+    "systemMessage": "You have joined the room"
+  },
   "roomsScreen": {},
   "settingsScreen": {}
 }

@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { GiftedChat } from 'react-native-gifted-chat';
 import { useTheme } from 'react-native-paper';
+import { useTranslation } from 'react-i18next';
 import {
   renderLoading,
   renderSystemMessage,
@@ -28,6 +29,7 @@ export const Room = ({ route }) => {
   const { room } = route.params;
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
+  const { t } = useTranslation();
   const { user } = useContext(AuthContext);
   const [messages, setMessages] = useState([]);
 
@@ -98,7 +100,7 @@ export const Room = ({ route }) => {
       renderLoading={() => renderLoading(colors)}
       renderComposer={(props) => renderComposer({ props, colors })}
       renderInputToolbar={(props) => renderInputToolbar({ props, colors })}
-      renderSystemMessage={(props) => renderSystemMessage({ props, colors })}
+      renderSystemMessage={(props) => renderSystemMessage({ props, colors, t })}
       scrollToBottomComponent={() => scrollToBottomComponent(colors)}
       renderActions={(props) => renderActions({ props, handleSendLocation })}
       bottomOffset={insets.bottom}

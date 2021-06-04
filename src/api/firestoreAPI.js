@@ -11,7 +11,7 @@ export const createRoom = async (roomName) => {
     });
 
     await ref.collection('MESSAGES').add({
-      text: `You have joined the room ${roomName}`,
+      text: roomName,
       createdAt: new Date().getTime(),
       system: true,
     });
