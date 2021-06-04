@@ -42,5 +42,12 @@
     "systemMessage": "You have joined the room"
   },
   "roomsScreen": {},
-  "settingsScreen": {}
+  "settingsScreen": {
+    "titleModal": "Settings",
+    "subtitleModal": "Are you sure you want to log out?",
+    "cancel": "Cancel",
+    "logout": "Logout",
+    "darkTheme": "Dark Theme",
+    "languageLink": "Language"
+  }
 }

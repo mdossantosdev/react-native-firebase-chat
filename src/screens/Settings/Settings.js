@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { View, Alert } from 'react-native';
 import { TouchableOpacity} from 'react-native-gesture-handler';
 import { List, Switch, Divider, Button } from 'react-native-paper';
+import { useTranslation } from 'react-i18next';
 import { styles } from './styles';
 import { ThemeContext } from '../../context/ThemeContext';
 import { logout } from '../../api/firebaseAuthAPI';
@@ -10,19 +11,20 @@ import { Routes } from '../../navigation/routes';
 
 export const Settings = ({ navigation }) => {
   const { toggleTheme, isDarkTheme } = useContext(ThemeContext);
+  const { t } = useTranslation();
 
   const handleLogout = () => {
     Alert.alert(
-      'Settings',
-      'Are you sure you want to log out?',
+      t('settingsScreen.titleModal'),
+      t('settingsScreen.subtitleModal'),
       [
         {
-          text: 'Cancel',
+          text: t('settingsScreen.cancel'),
           style: 'cancel',
           onPress: () => {},
         },
         {
-          text: 'Log out',
+          text: t('settingsScreen.logout'),
           style: 'destructive',
           onPress: () => logout(),
         },
@@ -35,14 +37,14 @@ export const Settings = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.innerContainer}>
         <List.Item
-          title='Dark Theme'
+          title={t('settingsScreen.darkTheme')}
           left={(props) => <List.Icon {...props} icon='brightness-4' />}
           right={() => <Switch value={isDarkTheme} onValueChange={toggleTheme} />}
         />
         <Divider />
         <TouchableOpacity onPress={() => navigation.navigate(Routes.Language)}>
           <List.Item
-            title='Language'
+            title={t('settingsScreen.languageLink')}
             left={(props) => <List.Icon {...props} icon='web' />}
             right={(props) => <List.Icon {...props} icon='chevron-right' />}
           />
@@ -57,7 +59,7 @@ export const Settings = ({ navigation }) => {
         labelStyle={styles.labelButton}
         onPress={() => handleLogout()}
       >
-        Log out
+        {t('settingsScreen.logout')}
       </Button>
     </View>
   );
