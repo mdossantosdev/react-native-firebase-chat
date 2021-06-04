@@ -10,7 +10,6 @@ npm-debug.*
 
 # dotenv environment variable file
 .env
-firebaseConfig.js
 
 # macOS
 .DS_Store
