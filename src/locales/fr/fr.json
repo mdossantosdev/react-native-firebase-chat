@@ -10,5 +10,44 @@
     "profile": "Profil",
     "rooms": "Salles",
     "settings": "Paramètres"
+  },
+  "addRoomScreen": {
+    "title": "Créer une nouvelle salle",
+    "inputLabel": "Nom de la salle",
+    "buttonLabel": "Créer"
+  },
+  "languageScreen": {
+    "english": "Anglais",
+    "french": "Français",
+    "spanish": "Espagnol"
+  },
+  "loginScreen": {
+    "welcome": "Bienvenue sur Chat App",
+    "emailLabel": "Email",
+    "passwordLabel": "Mot de passe",
+    "buttonLabel": "Se connecter",
+    "newUser": "Nouveau ? S'inscrire ici"
+  },
+  "profileScreen": {
+    "emailLabel": "Email",
+    "joined": "Rejoint Chat App le"
+  },
+  "registerScreen": {
+    "registerTitle": "S'inscrire sur Chat App",
+    "emailLabel": "Email",
+    "passwordLabel": "Mot de passe",
+    "buttonLabel": "S'inscrire"
+  },
+  "roomScreen": {
+    "systemMessage": "Vous avez rejoint la salle"
+  },
+  "roomsScreen": {},
+  "settingsScreen": {
+    "titleModal": "Paramètres",
+    "subtitleModal": "Êtes-vous sûr de vouloir vous déconnecter ?",
+    "cancel": "Annuler",
+    "logout": "Déconnexion",
+    "darkTheme": "Thème sombre",
+    "languageLink": "Langue"
   }
 }
