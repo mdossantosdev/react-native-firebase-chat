@@ -39,7 +39,10 @@
     "buttonLabel": "Regístrese"
   },
   "roomScreen": {
-    "systemMessage": "Te has unido a la sala"
+    "systemMessage": "Te has unido a la sala",
+    "chooseFromLibrary": "Elija de la biblioteca",
+    "sendCurrentLocation": "Enviar ubicación actual",
+    "cancel": "Cancelar"
   },
   "roomsScreen": {},
   "settingsScreen": {

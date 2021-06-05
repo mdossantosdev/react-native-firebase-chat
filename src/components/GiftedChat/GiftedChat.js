@@ -125,7 +125,7 @@ export const renderSend = (props) => (
   </Send>
 );
 
-export const renderActions = ({ props, handleSendLocation }) => (
+export const renderActions = ({ props, handleSendLocation, t }) => (
   <Actions
     {...props}
     containerStyle={{
@@ -138,9 +138,9 @@ export const renderActions = ({ props, handleSendLocation }) => (
     }}
     icon={() => <IconButton icon='paperclip' size={30} color={COLOR_PRIMARY} />}
     options={{
-      'Choose From Library': () => console.log('Choose From Library'),
-      'Send Current Location': () => handleSendLocation(),
-      Cancel: () => console.log('Cancel')
+      [t('roomScreen.chooseFromLibrary')]: () => console.log('Choose From Library'),
+      [t('roomScreen.sendCurrentLocation')]: () => handleSendLocation(),
+      [t('roomScreen.cancel')]: () => console.log('Cancel')
     }}
     optionTintColor={COLOR_PRIMARY}
   />

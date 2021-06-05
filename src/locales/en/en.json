@@ -39,7 +39,10 @@
     "buttonLabel": "Register"
   },
   "roomScreen": {
-    "systemMessage": "You have joined the room"
+    "systemMessage": "You have joined the room",
+    "chooseFromLibrary": "Choose From Library",
+    "sendCurrentLocation": "Send Current Location",
+    "cancel": "Cancel"
   },
   "roomsScreen": {},
   "settingsScreen": {

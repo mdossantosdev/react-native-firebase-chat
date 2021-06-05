@@ -102,7 +102,7 @@ export const Room = ({ route }) => {
       renderInputToolbar={(props) => renderInputToolbar({ props, colors })}
       renderSystemMessage={(props) => renderSystemMessage({ props, colors, t })}
       scrollToBottomComponent={() => scrollToBottomComponent(colors)}
-      renderActions={(props) => renderActions({ props, handleSendLocation })}
+      renderActions={(props) => renderActions({ props, handleSendLocation, t })}
       bottomOffset={insets.bottom}
       textInputProps={{
         keyboardAppearance: useTheme().dark ? 'dark' : 'light',

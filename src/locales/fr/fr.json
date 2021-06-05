@@ -39,7 +39,10 @@
     "buttonLabel": "S'inscrire"
   },
   "roomScreen": {
-    "systemMessage": "Vous avez rejoint la salle"
+    "systemMessage": "Vous avez rejoint la salle",
+    "chooseFromLibrary": "Choisir dans la bibliothèque",
+    "sendCurrentLocation": "Envoyer la position actuelle",
+    "cancel": "Annuler"
   },
   "roomsScreen": {},
   "settingsScreen": {
