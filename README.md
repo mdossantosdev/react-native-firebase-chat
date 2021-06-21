@@ -50,7 +50,11 @@ $ cd react-native-firebase-chat
 $ npm install
 ```
 
-4. Rename the .env_sample file to .env and fill it
+4. Rename the .env.sample file to .env and fill it
+
+```sh
+cp .env.sample .env
+```
 
 ```
 API_KEY=your_api_key
