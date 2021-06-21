@@ -1,8 +1,14 @@
 <h1 align="center">React Native Firebase Chat</h1>
 
-> Realtime Chat App built with React Native and Firebase as a backend in order to authenticate users and store data.
+Realtime Chat App built with React Native and Firebase as a backend in order to authenticate users and store data.
 
-## 📦 Built with
+## 📱 Demo
+
+<div align="center">
+  <video src='https://user-images.githubusercontent.com/25856076/233850369-887a9f5f-76bb-446c-a09a-51dee3d0139e.mov' />
+</div>
+
+## 🛠️ Built with
 
 - React Native
 - Expo
@@ -17,7 +23,8 @@
 - [x] Authentication
 - [x] Realtime Chat
 - [x] Create Chat Room
-- [x] Light/Dark theme
+- [x] Send Location
+- [x] Light/Dark Theme
 - [x] Internationalization
 - [x] Logout
 - [x] Bottom Tab Navigation
